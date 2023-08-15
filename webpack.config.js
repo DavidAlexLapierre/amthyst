@@ -7,7 +7,7 @@ module.exports = (env) => {
         entry: './src/index.ts', // Entry point of your application
         output: {
             filename: 'index.js',
-            path: path.resolve(__dirname, 'out'),
+            path: path.resolve(__dirname, 'dist'),
         },
         resolve: {
             extensions: ['.ts', '.js'], // Allow importing TypeScript and JavaScript files
