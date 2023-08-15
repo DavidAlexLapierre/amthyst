@@ -1,13 +1,12 @@
-import { CanvasManager } from "@amethyst/canvas";
+import { Engine } from '@amethyst/rendering';
 
 export class Game {
     private title: string;
-    private _canvasManager: CanvasManager;
+    private engine: Engine;
 
-    constructor(title: string, width: number, height: number, rootId?: string) {
+    constructor(title: string, rootId?: string) {
         this.title = title;
-        this._canvasManager = new CanvasManager();
-        this._canvasManager.initCanvas(width, height, rootId);
+        this.engine = new Engine(rootId);
     }
 
     run() {
