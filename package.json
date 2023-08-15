@@ -9,12 +9,8 @@
     "test": "npx jest --coverage"
   },
   "keywords": [],
-  "author": "",
+  "author": "David-Alexandre Lapierre",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/DavidAlexLapierre/amthyst/issues"
-  },
-  "homepage": "https://github.com/DavidAlexLapierre/amthyst#readme",
   "devDependencies": {
     "@types/jest": "^29.5.3",
     "ignore-loader": "^0.1.2",
