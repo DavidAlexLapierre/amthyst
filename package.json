@@ -27,6 +27,7 @@
     "@amethyst/canvas": "file:./src/canvas",
     "@amethyst/core": "file:./src/core",
     "@amethyst/ecs": "file:./src/ecs",
+    "@amethyst/rendering": "file./src/rendering",
     "webgpu-matrix": "^1.0.0"
   }
 }
