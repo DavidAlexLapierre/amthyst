@@ -2,10 +2,12 @@
   "name": "amthyst",
   "version": "0.0.1",
   "description": "",
-  "main": "src/index.ts",
+  "main": "./dist/index.js",
+  "types": "./dist/@types/",
   "scripts": {
     "build": "webpack --config webpack.config.js",
     "build:release": "webpack --env production --config webpack.config.js",
+    "clean": "rm -r ./dist/",
     "test": "npx jest --coverage"
   },
   "keywords": [],
