@@ -24,6 +24,10 @@ module.exports = (env) => {
                     test: /\.css$/,
                     use: ['style-loader', 'css-loader'], // For handling CSS files
                 },
+                {
+                    test: /\.spec\.ts$/,
+                    use: 'ignore-loader'
+                }
             ],
         },
     }
