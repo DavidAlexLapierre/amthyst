@@ -2,7 +2,7 @@
   "name": "amthyst",
   "version": "0.0.1",
   "description": "",
-  "main": "index.ts",
+  "main": "src/index.ts",
   "scripts": {
     "build": "webpack --config webpack.config.js",
     "build:release": "webpack --env production --config webpack.config.js",
