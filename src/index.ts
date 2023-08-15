@@ -1,1 +1,3 @@
-export * from './core/game';
+export {
+    Game
+} from './core';

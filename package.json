@@ -24,6 +24,9 @@
     "webpack-cli": "^5.1.4"
   },
   "dependencies": {
+    "@amethyst/canvas": "file:./src/canvas",
+    "@amethyst/core": "file:./src/core",
+    "@amethyst/ecs": "file:./src/ecs",
     "webgpu-matrix": "^1.0.0"
   }
 }
