@@ -3,7 +3,7 @@ SRC_DIR := .\src
 INCLUDE_DIR := -I.\include -I.\libs\include
 BIN_DIR := .\bin
 LIBS_DIR := .\libs
-GLFWFLAG := -lSDL2main -lSDL2 -lmingw32
+GLFWFLAG := -lglfw3 -lglew32s -lopengl32 -lgdi32
 WARNINGFLAGS := -Wno-unused-parameter
 
 # Compiler and flags for cross-compiling to Windows
