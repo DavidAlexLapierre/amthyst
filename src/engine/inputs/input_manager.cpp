@@ -1,18 +1,17 @@
 #include "engine/inputs/input_manager.h"
+#include <iostream>
 
 namespace Engine::Inputs {
 
-    InputManager *InputManager::instance = nullptr;
-
-    InputManager::~InputManager() {
-        delete instance;
-        instance = nullptr;
+    InputManager::InputManager(GLFWwindow* window) {
+        glfwSetWindowUserPointer(window, this);
+        glfwSetKeyCallback(window, keyboardCallback);
     }
 
-    InputManager* InputManager::get() {
-        if (InputManager::instance == nullptr) {
-            InputManager::instance = new InputManager();
+    void InputManager::keyboardCallback(GLFWwindow *window, int key, int scancode, int action, int mods) {
+        if (action == GLFW_PRESS) {
+        } else if (action == GLFW_RELEASE) {
+            std::cout << key << std::endl;
         }
-        return instance;
     }
 }

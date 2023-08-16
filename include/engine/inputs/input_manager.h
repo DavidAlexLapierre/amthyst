@@ -1,14 +1,12 @@
 #pragma once
 
-#include <memory>
+#include "engine/inputs/keyboard_manager.h"
+#include <GLFW/glfw3.h>
 
 namespace Engine::Inputs {
     class InputManager {
         public:
-            ~InputManager();
-            static InputManager* get();
-
-        private:
-            static InputManager* instance;
+            InputManager(GLFWwindow* window);
+            static void keyboardCallback(GLFWwindow *window, int key, int scancode, int action, int mods);
     };
 }

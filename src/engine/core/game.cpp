@@ -2,12 +2,11 @@
 #include <iostream>
 #include <functional>
 
-namespace Engine::Core {
+namespace Core {
     Game::Game() {
-        windowManager = std::make_shared<Display::WindowManager>();
+        windowManager = std::make_shared<Engine::Display::WindowManager>();
         windowManager->init();
-        renderer = std::make_shared<Rendering::Renderer>();
-        glfwSetKeyCallback(windowManager->getWindow(), Inputs::keyboardCallback);
+        renderer = std::make_shared<Engine::Rendering::Renderer>();
     }
 
     Game::~Game() {
