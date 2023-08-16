@@ -3,7 +3,7 @@
 
 int main() {
     
-    std::unique_ptr<Core::Game> game(new Core::Game());
+    std::unique_ptr<Game> game(new Game());
     game->run();
 
     return 0;

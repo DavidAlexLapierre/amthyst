@@ -7,15 +7,14 @@
 #include <GLFW/glfw3.h>
 #include <memory>
 
-namespace Core {
-    class Game {
-        public:
-            Game();
-            ~Game();
-            void run();
-        private:
-            std::shared_ptr<Engine::Display::WindowManager> windowManager;
-            std::shared_ptr<Engine::Rendering::Renderer> renderer;
-            std::shared_ptr<Engine::Inputs::InputManager> inputManager;
-    };
-}
+
+class Game {
+    public:
+        Game();
+        ~Game();
+        void run();
+    private:
+        std::shared_ptr<Engine::Display::WindowManager> windowManager;
+        std::shared_ptr<Engine::Rendering::Renderer> renderer;
+        std::shared_ptr<Engine::Inputs::InputManager> inputManager;
+};
