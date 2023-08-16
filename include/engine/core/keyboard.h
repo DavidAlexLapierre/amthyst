@@ -1,9 +1,9 @@
 #pragma once
 
-#include "engine/inputs/keyboard_manager.h"
+#include "engine/inputs/input_manager.h"
 
 namespace Keyboard {
-    bool keyPressed();
-    bool keyDown();
-    bool keyUp();
+    bool keyPressed(int key);
+    bool keyDown(int key);
+    bool keyUp(int key);
 }

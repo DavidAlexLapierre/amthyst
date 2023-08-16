@@ -9,7 +9,7 @@ namespace Engine::Inputs {
     }
 
     int KeyStates::getDownState(int key) { return downStates[key]; }
-    int KeyStates::getUpState(int key) { return downStates[key]; }
+    int KeyStates::getUpState(int key) { return upStates[key]; }
     void KeyStates::setDownState(int key, bool enabled) { downStates[key] = enabled ? KeyStates::ENABLED : KeyStates::DISABLED; }
     void KeyStates::setUpState(int key, bool enabled) { upStates[key] = enabled ? KeyStates::ENABLED : KeyStates::DISABLED; }
 }

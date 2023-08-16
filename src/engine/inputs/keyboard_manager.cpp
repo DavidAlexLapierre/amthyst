@@ -8,7 +8,11 @@ namespace Engine::Inputs {
 
     bool KeyboardManager::checkKeyDown(int key) { return keyStates.getDownState(key); }
 
-    bool KeyboardManager::checkKeyUp(int key) { return keyStates.getUpState(key); }
+    bool KeyboardManager::checkKeyUp(int key) {
+        auto retVal = keyStates.getUpState(key);
+        disableKeyUp(key);
+        return retVal;
+    }
 
     bool KeyboardManager::checkKeyPressed(int key) {
         if (checkKeyDown(key) && !alreadyPressed) {

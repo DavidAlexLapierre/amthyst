@@ -11,6 +11,10 @@ namespace Engine::Inputs {
         keyboardManager = std::make_shared<KeyboardManager>();
     }
 
+    KeyboardManager* InputManager::getKeyboard() {
+        return keyboardManager.get();
+    }
+
     void InputManager::keyboardCallback(GLFWwindow *window, int key, int scancode, int action, int mods) {
         if (action == GLFW_PRESS) {
             keyboardManager->enableKeyDown(key);
