@@ -2,6 +2,7 @@
 
 #include "engine/display/window_manager.h"
 #include "engine/rendering/renderer.h"
+#include "engine/inputs/input_handler.h"
 #include <GLFW/glfw3.h>
 #include <memory>
 
