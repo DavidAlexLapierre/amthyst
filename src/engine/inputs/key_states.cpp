@@ -7,4 +7,12 @@ namespace Engine::Inputs {
             upStates[i] = KeyStates::DISABLED;
         }
     }
+
+    void KeyStates::setDownState(int key, bool enabled) {
+        downStates[key] = enabled ? KeyStates::ENABLED : KeyStates::DISABLED;
+    }
+
+    void KeyStates::setUpState(int key, bool enabled) {
+        upStates[key] = enabled ? KeyStates::ENABLED : KeyStates::DISABLED;
+    }
 }

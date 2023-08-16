@@ -3,15 +3,21 @@
 
 namespace Engine::Inputs {
 
+    std::shared_ptr<KeyboardManager> InputManager::keyboardManager = nullptr;
+
     InputManager::InputManager(GLFWwindow* window) {
         glfwSetWindowUserPointer(window, this);
         glfwSetKeyCallback(window, keyboardCallback);
+        keyboardManager = std::make_shared<KeyboardManager>();
     }
 
     void InputManager::keyboardCallback(GLFWwindow *window, int key, int scancode, int action, int mods) {
         if (action == GLFW_PRESS) {
+            keyboardManager->enableKeyDown(key);
+            keyboardManager->disableKeyUp(key);
         } else if (action == GLFW_RELEASE) {
-            std::cout << key << std::endl;
+            keyboardManager->enableKeyUp(key);
+            keyboardManager->disableKeyDown(key);
         }
     }
 }

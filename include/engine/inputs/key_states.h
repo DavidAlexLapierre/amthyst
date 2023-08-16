@@ -8,6 +8,8 @@ namespace Engine::Inputs {
             static const int ENABLED = 1;
             static const int DISABLED = 0;
             KeyStates();
+            void setDownState(int key, bool enabled);
+            void setUpState(int key, bool enabled);
 
         private:
             int downStates[GLFW_KEY_LAST + 1];

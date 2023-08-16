@@ -1,20 +1,18 @@
 #pragma once
 
 #include "engine/inputs/key_states.h"
-#include <memory>
-#include <map>
-#include <GLFW/glfw3.h>
 
 namespace Engine::Inputs {
     class KeyboardManager {
         public:
-            ~KeyboardManager();
-            static KeyboardManager* get();
+            KeyboardManager();
+            void enableKeyDown(int key);
+            void enableKeyUp(int key);
+            void disableKeyDown(int key);
+            void disableKeyUp(int key);
 
         private:
             KeyStates keyStates;
             KeyStates previousKeyStates;
-            KeyboardManager();
-            static KeyboardManager* instance;
     };
 }
