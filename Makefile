@@ -3,7 +3,7 @@ SRC_DIR := .\src
 INCLUDE_DIR := -I.\include -I.\libs\include
 BIN_DIR := .\bin
 LIBS_DIR := .\libs
-GLFWFLAG := -lglfw3 -lglew32s -lopengl32 -lgdi32
+GLFWFLAG := -lglfw3 -lopengl32 -lgdi32
 WARNINGFLAGS := -Wno-unused-parameter
 
 # Compiler and flags for cross-compiling to Windows
@@ -16,6 +16,12 @@ CPP_SRCS := $(shell dir /b /s $(SRC_DIR)\*.cpp)
 # Generate corresponding .o file names in build directory for .cpp files
 CPP_OBJS := $(foreach src,$(CPP_SRCS),$(patsubst $(SRC_DIR)\%.cpp,$(BIN_DIR)\%.o,$(src)))
 
+# Find all .c files in src directory and its subdirectories
+C_SRCS := $(shell dir /b /s $(SRC_DIR)\*.c)
+
+# Generate corresponding .o file names in build directory for .c files
+C_OBJS := $(foreach src,$(CPP_SRCS),$(patsubst $(SRC_DIR)\%.c,$(BIN_DIR)\%.o,$(src)))
+
 # Output binary name and location
 TARGET := $(BIN_DIR)\amber.exe
 
@@ -26,7 +32,7 @@ DLL_FILES := $(wildcard *.dll)
 all: copy_dlls $(TARGET)
 
 # Linking rule
-$(TARGET): $(CPP_OBJS)
+$(TARGET): $(CPP_OBJS) $(C_OBJS)
 	@if not exist $(BIN_DIR) mkdir $(BIN_DIR)
 	$(CXX) $(CXXFLAGS) $^ -o $@ $(GLFWFLAG)
 
