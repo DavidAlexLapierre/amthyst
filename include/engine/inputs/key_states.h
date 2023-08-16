@@ -10,6 +10,8 @@ namespace Engine::Inputs {
             KeyStates();
             void setDownState(int key, bool enabled);
             void setUpState(int key, bool enabled);
+            int getDownState(int key);
+            int getUpState(int key);
 
         private:
             int downStates[GLFW_KEY_LAST + 1];
