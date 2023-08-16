@@ -1,6 +1,5 @@
 #include "engine/core/game.h"
 #include <iostream>
-#include <functional>
 
 namespace Core {
     Game::Game() {
@@ -22,7 +21,7 @@ namespace Core {
             glfwPollEvents();
             glfwSwapBuffers(windowManager->getWindow());
 
-            if (Keyboard::keyUp(GLFW_KEY_A)) {
+            if (keyPressed(Keys::A)) {
                 std::cout << "A pressed" << std::endl;
             }
 

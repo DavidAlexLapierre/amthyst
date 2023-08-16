@@ -1,9 +1,16 @@
 #include "engine/core/keyboard.h"
 
-namespace Keyboard {
-    bool keyPressed(int key) { return Engine::Inputs::InputManager::getKeyboard()->checkKeyPressed(key); }
+bool keyPressed(Keys key) {
+    auto keyVal = Engine::Inputs::KeyMapper::getKey(key);
+    return Engine::Inputs::InputManager::getKeyboard()->checkKeyPressed(keyVal);
+}
 
-    bool keyDown(int key) { return Engine::Inputs::InputManager::getKeyboard()->checkKeyDown(key); }
+bool keyDown(Keys key) {
+    auto keyVal = Engine::Inputs::KeyMapper::getKey(key);
+    return Engine::Inputs::InputManager::getKeyboard()->checkKeyDown(keyVal);
+}
 
-    bool keyUp(int key) { return Engine::Inputs::InputManager::getKeyboard()->checkKeyUp(key); }
+bool keyUp(Keys key) {
+    auto keyVal = Engine::Inputs::KeyMapper::getKey(key);
+    return Engine::Inputs::InputManager::getKeyboard()->checkKeyUp(keyVal);
 }
