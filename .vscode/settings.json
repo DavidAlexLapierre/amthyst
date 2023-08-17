@@ -60,7 +60,9 @@
         "xloctime": "cpp",
         "typeindex": "cpp",
         "xtree": "cpp",
-        "map": "cpp"
+        "map": "cpp",
+        "random": "cpp",
+        "sstream": "cpp"
     },
     "editor.tabSize": 4,
     "editor.defaultFormatter": "ms-vscode.cpptools",
