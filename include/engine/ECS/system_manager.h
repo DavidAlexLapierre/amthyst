@@ -13,6 +13,7 @@ namespace Engine::ECS {
             SystemManager();
             void update(int deltaT);
             void registerSystem(std::shared_ptr<System> system);
+            std::vector<std::shared_ptr<System>> getSystems();
 
         private:
             void addEntity(const void *data);

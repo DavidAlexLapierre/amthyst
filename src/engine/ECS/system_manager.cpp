@@ -27,6 +27,8 @@ namespace Engine::ECS {
         }
     }
 
+    std::vector<std::shared_ptr<System>> SystemManager::getSystems() { return systems; }
+
     bool SystemManager::entityMatchesSystem(std::shared_ptr<Entity> entity, std::shared_ptr<System> system) {
         for (const std::type_index systemType : system->getComponents()) {
             auto components = entity->getComponents();

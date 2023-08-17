@@ -23,6 +23,12 @@ void Game::run() {
         glClearColor(color.r(), color.g(), color.b(), color.a());
         glClear(GL_COLOR_BUFFER_BIT);
         glfwPollEvents();
+
+        // update
+        sceneManager->getCurrentScene()->update(0); // replace 0 with deltaT
+
+        // draw
+
         glfwSwapBuffers(windowManager->getWindow());
 
         if (keyPressed(Keys::A)) {
