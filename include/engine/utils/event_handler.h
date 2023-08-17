@@ -1,23 +1,41 @@
 #pragma once
 
 #include "engine/utils/events.h"
+#include <iostream>
 #include <functional>
 #include <unordered_map>
 #include <vector>
 
 namespace Engine::Utils {
     class EventHandler {
-        public:
-            static EventHandler &instance();
-            void listen(const Events event, std::function<void()> callback);
-            void emit(const Events event);
+    public:
+        using EventCallback = std::function<void(const void*)>;
 
-        private:
-            EventHandler() = default;
-            ~EventHandler() = default;
-            EventHandler(const EventHandler&) = delete;
-            EventHandler& operator=(const EventHandler&) = delete;
+        static EventHandler& instance() {
+            static EventHandler instance;
+            return instance;
+        }
 
-            std::unordered_map<Events, std::vector<std::function<void()>>> eventCallbacks;
+        void listen(Events event, EventCallback callback) {
+            eventCallbacks_[event].push_back(callback);
+        }
+
+        void emit(Events event, const void* data = nullptr) {
+            for (const EventCallback& callback : eventCallbacks_[event]) {
+                callback(data);
+            }
+        }
+
+        template <typename T>
+        std::shared_ptr<T> toSharedPtr(const void *data) {
+            return std::shared_ptr<T>(reinterpret_cast<T*>(const_cast<void*>(data)));
+        }
+
+    private:
+        EventHandler() = default;
+        ~EventHandler() = default;
+
+        std::unordered_map<Events, std::vector<EventCallback>> eventCallbacks_;
     };
+
 }

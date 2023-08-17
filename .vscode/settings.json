@@ -62,7 +62,12 @@
         "xtree": "cpp",
         "map": "cpp",
         "random": "cpp",
-        "sstream": "cpp"
+        "sstream": "cpp",
+        "any": "cpp",
+        "mutex": "cpp",
+        "ratio": "cpp",
+        "stop_token": "cpp",
+        "thread": "cpp"
     },
     "editor.tabSize": 4,
     "editor.defaultFormatter": "ms-vscode.cpptools",
