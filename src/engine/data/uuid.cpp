@@ -1,6 +1,6 @@
-#include "engine/utils/uuid.h"
+#include "engine/data/uuid.h"
 
-namespace Engine::Utils {
+namespace Data {
 
     const std::string UUID::EMPTY = "00000000-00000000-00000000-00000000";
 

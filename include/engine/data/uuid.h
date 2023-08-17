@@ -5,7 +5,7 @@
 #include <iomanip>
 #include <sstream>
 
-namespace Engine::Utils {
+namespace Data {
     class UUID {
         public:
             static const std::string EMPTY;
