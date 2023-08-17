@@ -4,6 +4,8 @@ Entity::Entity() {
     _id = Data::UUID();
 }
 
+Data::UUID Entity::id() { return _id; }
+
 template <typename T>
 void Entity::addComponent(std::shared_ptr<T> component) {
     static_assert(std::is_base_of<Component, T>::value, "T must be derived from Component");

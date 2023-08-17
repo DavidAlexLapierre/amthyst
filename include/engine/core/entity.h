@@ -9,6 +9,7 @@
 class Entity {
     public:
         Entity();
+        Data::UUID id();
         virtual void init() = 0;
         virtual void dispose() = 0;
         template <typename T>
