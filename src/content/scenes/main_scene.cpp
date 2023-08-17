@@ -4,7 +4,6 @@
 namespace Content {
     void MainScene::init() {
         std::cout << "Creating scene" << std::endl;
-        setColor(Data::Color(255, 0, 255));
     }
 
     void MainScene::dispose() {
