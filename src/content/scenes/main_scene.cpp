@@ -3,7 +3,15 @@
 
 namespace Content {
 
+    MainScene::~MainScene() {
+        dispose();
+    }
+
     void MainScene::init() {
-        std::cout << "Hello scene" << std::endl;
+        std::cout << "Creating scene" << std::endl;
+    }
+
+    void MainScene::dispose() {
+        std::cout << "Disposing scene" << std::endl;
     }
 }

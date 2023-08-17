@@ -6,7 +6,8 @@ class Scene {
     public:
         Scene(const std::string& name);
         virtual void init() = 0;
-        std::string getName();
+        virtual void dispose() = 0;
+        const std::string getName();
 
     private:
         std::string name;

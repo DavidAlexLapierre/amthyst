@@ -4,4 +4,4 @@ Scene::Scene(const std::string& _name) {
     name = _name;
 }
 
-std::string Scene::getName() { return name; }
+const std::string Scene::getName() { return name; }
