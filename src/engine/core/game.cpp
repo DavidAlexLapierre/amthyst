@@ -19,7 +19,8 @@ void Game::registerScene(std::shared_ptr<Scene> scene) { sceneManager->registerS
 void Game::run() {
     std::cout << "Hello world!" << std::endl;
     while (!glfwWindowShouldClose(windowManager->getWindow())) {
-        glClearColor(0.2f, 0.2f, 0.2f, 1.0f);
+        auto color = sceneManager->getCurrentScene()->getBackgroundColor();
+        glClearColor(color.r(), color.g(), color.b(), color.a());
         glClear(GL_COLOR_BUFFER_BIT);
         glfwPollEvents();
         glfwSwapBuffers(windowManager->getWindow());
