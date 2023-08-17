@@ -5,6 +5,12 @@ namespace Engine::ECS {
         currentScene = nullptr;
     }
 
+    SceneManager::~SceneManager() {
+        for (const auto& scene : scenes) {
+            scene.second->dispose();
+        }
+    }
+
     void SceneManager::registerScene(std::shared_ptr<Scene> scene) {
         auto name = scene.get()->getName();
         scenes[name] = scene;
