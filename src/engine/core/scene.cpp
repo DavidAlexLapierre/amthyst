@@ -1,6 +1,6 @@
 #include "engine/core/scene.h"
 
-Scene::Scene(const std::string& _name) {
+Scene::Scene(const std::string _name) {
     name = _name;
     systemManager = Engine::ECS::SystemManager();
     backgroundColor = Data::Color(20, 20, 20);
