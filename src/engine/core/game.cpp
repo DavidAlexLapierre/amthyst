@@ -7,11 +7,14 @@ Game::Game() {
     windowManager->init();
     renderer = std::make_shared<Engine::Rendering::Renderer>();
     inputManager = std::make_shared<Engine::Inputs::InputManager>(windowManager->getWindow());
+    sceneManager = std::make_shared<Engine::ECS::SceneManager>();
 }
 
 Game::~Game() {
     glfwTerminate();
 }
+
+void Game::registerScene(std::shared_ptr<Scene> scene) { sceneManager->registerScene(scene); }
 
 void Game::run() {
     std::cout << "Hello world!" << std::endl;
