@@ -11,8 +11,8 @@ namespace Engine::Inputs {
         keyboardManager = std::make_shared<KeyboardManager>();
     }
 
-    KeyboardManager* InputManager::getKeyboard() {
-        return keyboardManager.get();
+    std::shared_ptr<KeyboardManager> InputManager::getKeyboard() {
+        return keyboardManager;
     }
 
     void InputManager::keyboardCallback(GLFWwindow *window, int key, int scancode, int action, int mods) {
