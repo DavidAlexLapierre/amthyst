@@ -13,6 +13,8 @@ void System::unregisterEntity(std::string id) {
     entities.erase(id);
 }
 
+std::vector<std::type_index> System::getComponents() const { return registeredComponents; }
+
 void System::updateEntities(int deltaT) {
     for (auto entity : entities) {
         update(deltaT, entity.second);

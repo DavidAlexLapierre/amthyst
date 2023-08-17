@@ -15,6 +15,7 @@ class System {
         void registerEntity(std::shared_ptr<Entity> entity);
         void unregisterEntity(std::string id);
         void updateEntities(int deltaT);
+        std::vector<std::type_index> getComponents() const;
 
     private:
         std::vector<std::type_index> registeredComponents;

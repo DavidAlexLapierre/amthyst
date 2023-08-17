@@ -22,3 +22,14 @@ std::shared_ptr<T> Entity::getComponent() {
     }
     return nullptr;
 }
+
+std::vector<std::type_index> Entity::getComponentList() {
+    std::vector<std::type_index> _components;
+    for (auto component : components) {
+        _components.push_back(component.first);
+    }
+
+    return _components;
+}
+
+std::map<std::type_index, std::shared_ptr<Component>> Entity::getComponents() const { return components; }
