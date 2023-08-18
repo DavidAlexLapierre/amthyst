@@ -8,12 +8,25 @@ Game::Game() {
 
 void Game::registerScene(std::shared_ptr<Scene> scene) { sceneManager->registerScene(scene); }
 
+GLFWwindow* Game::initWindow() {
+    auto window = glfwCreateWindow(800, 600, "Game", NULL, NULL);
+    if (!window) { return nullptr; }
+
+    glfwMakeContextCurrent(window);
+    glfwSetKeyCallback(window, Engine::Inputs::InputManager::keyboardCallback);
+
+    return window;
+}
+
+void Game::terminateWindow(GLFWwindow* window) {
+    glfwSetKeyCallback(window, nullptr);
+    glfwDestroyWindow(window);
+}
+
 void Game::run() {
     if (glfwInit()) {
-        auto window = glfwCreateWindow(800, 600, "Game", NULL, NULL);
+        auto window = initWindow();
         if (window) {
-            glfwMakeContextCurrent(window);
-            glfwSetKeyCallback(window, Engine::Inputs::InputManager::keyboardCallback);
             while (!glfwWindowShouldClose(window))
             {
                 auto color = sceneManager->getCurrentScene()->getBackgroundColor();
@@ -35,8 +48,8 @@ void Game::run() {
                 // UPDATE
                 // DRAW
             }
-            glfwSetKeyCallback(window, nullptr);
-            glfwDestroyWindow(window);
+
+            terminateWindow(window);
         }
 
         glfwTerminate();
