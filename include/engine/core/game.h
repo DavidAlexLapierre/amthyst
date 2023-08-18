@@ -11,12 +11,13 @@
 class Game {
     public:
         Game();
-        void run();
+        void init();
         void registerScene(std::shared_ptr<Scene> scene);
 
     private:
         GLFWwindow* initWindow();
         void terminateWindow(GLFWwindow* window);
+        void run(GLFWwindow* window);
         std::shared_ptr<Engine::Rendering::Renderer> renderer;
         std::shared_ptr<Engine::ECS::SceneManager> sceneManager;
 };

@@ -23,35 +23,33 @@ void Game::terminateWindow(GLFWwindow* window) {
     glfwDestroyWindow(window);
 }
 
-void Game::run() {
+void Game::init() {
     if (glfwInit()) {
         auto window = initWindow();
         if (window) {
-            while (!glfwWindowShouldClose(window))
-            {
-                auto color = sceneManager->getCurrentScene()->getBackgroundColor();
-                glClearColor(color.r(), color.g(), color.b(), color.a());
-                glClear(GL_COLOR_BUFFER_BIT);
-                glfwPollEvents();
-
-                // update
-                sceneManager->getCurrentScene()->update(0); // replace 0 with deltaT
-
-                // draw
-
-                glfwSwapBuffers(window);
-
-                if (keyPressed(Keys::A)) {
-                    std::cout << "A pressed" << std::endl;
-                }
-
-                // UPDATE
-                // DRAW
+            while (!glfwWindowShouldClose(window)) {
+                run(window);
             }
-
             terminateWindow(window);
         }
-
         glfwTerminate();
     }
+}
+
+void Game::run(GLFWwindow* window) {
+    auto color = sceneManager->getCurrentScene()->getBackgroundColor();
+    glClearColor(color.r(), color.g(), color.b(), color.a());
+    glClear(GL_COLOR_BUFFER_BIT);
+    glfwPollEvents();
+
+    // update
+    sceneManager->getCurrentScene()->update(0); // replace 0 with deltaT
+
+    if (keyPressed(Keys::A)) {
+        std::cout << "A pressed" << std::endl;
+    }
+
+    // draw
+
+    glfwSwapBuffers(window);
 }

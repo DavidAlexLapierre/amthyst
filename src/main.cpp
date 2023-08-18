@@ -6,7 +6,7 @@ int main() {
 
     auto game = Game();
     game.registerScene(std::make_shared<Content::MainScene>("MainScene"));
-    game.run();
+    game.init();
 
     return 0;
 }
