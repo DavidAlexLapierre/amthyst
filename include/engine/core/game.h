@@ -15,7 +15,7 @@ class Game {
         void registerScene(std::shared_ptr<Scene> scene);
 
     private:
-        GLFWwindow *initWindow();
+        GLFWwindow* initWindow();
         void terminateWindow(GLFWwindow* window);
         std::shared_ptr<Engine::Rendering::Renderer> renderer;
         std::shared_ptr<Engine::ECS::SceneManager> sceneManager;
