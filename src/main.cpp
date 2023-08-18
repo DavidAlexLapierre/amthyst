@@ -3,10 +3,10 @@
 #include <memory>
 
 int main() {
-    
-    std::unique_ptr<Game> game(new Game());
-    game->registerScene(std::make_shared<Content::MainScene>("MainScene"));
-    game->run();
+
+    auto game = Game();
+    game.registerScene(std::make_shared<Content::MainScene>("MainScene"));
+    game.run();
 
     return 0;
 }

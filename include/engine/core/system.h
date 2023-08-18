@@ -3,7 +3,7 @@
 #include "engine/core/component.h"
 #include "engine/core/entity.h"
 #include "engine/data/uuid.h"
-#include <map>
+#include <unordered_map>
 #include <memory>
 #include <typeindex>
 #include <string>
@@ -23,5 +23,5 @@ class System {
     protected:
         virtual void dispose() = 0;
         virtual void update(int deltaT, std::shared_ptr<Entity> entity) = 0;
-        std::map<std::string, std::shared_ptr<Entity>> entities;
+        std::unordered_map<std::string, std::shared_ptr<Entity>> entities;
 };

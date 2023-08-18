@@ -32,4 +32,4 @@ std::vector<std::type_index> Entity::getComponentList() {
     return _components;
 }
 
-std::map<std::type_index, std::shared_ptr<Component>> Entity::getComponents() const { return components; }
+std::unordered_map<std::type_index, std::shared_ptr<Component>> Entity::getComponents() const { return components; }

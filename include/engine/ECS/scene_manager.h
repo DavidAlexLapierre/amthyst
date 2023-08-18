@@ -1,7 +1,7 @@
 #pragma once
 
 #include "engine/core/scene.h"
-#include <map>
+#include <unordered_map>
 #include <memory>
 #include <string>
 
@@ -16,6 +16,6 @@ namespace Engine::ECS {
 
         private:
             std::shared_ptr<Scene> currentScene;
-            std::map<std::string, std::shared_ptr<Scene>> scenes;
+            std::unordered_map<std::string, std::shared_ptr<Scene>> scenes;
     };
 }

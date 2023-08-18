@@ -1,41 +1,44 @@
 #include "engine/core/game.h"
-#include <iostream>
 
 
 Game::Game() {
-    windowManager = std::make_shared<Engine::Display::WindowManager>();
-    windowManager->init();
     renderer = std::make_shared<Engine::Rendering::Renderer>();
-    inputManager = std::make_shared<Engine::Inputs::InputManager>(windowManager->getWindow());
     sceneManager = std::make_shared<Engine::ECS::SceneManager>();
-}
-
-Game::~Game() {
-    glfwTerminate();
 }
 
 void Game::registerScene(std::shared_ptr<Scene> scene) { sceneManager->registerScene(scene); }
 
 void Game::run() {
-    std::cout << "Hello world!" << std::endl;
-    while (!glfwWindowShouldClose(windowManager->getWindow())) {
-        auto color = sceneManager->getCurrentScene()->getBackgroundColor();
-        glClearColor(color.r(), color.g(), color.b(), color.a());
-        glClear(GL_COLOR_BUFFER_BIT);
-        glfwPollEvents();
+    if (glfwInit()) {
+        auto window = glfwCreateWindow(800, 600, "Game", NULL, NULL);
+        if (window) {
+            glfwMakeContextCurrent(window);
+            glfwSetKeyCallback(window, Engine::Inputs::InputManager::keyboardCallback);
+            while (!glfwWindowShouldClose(window))
+            {
+                auto color = sceneManager->getCurrentScene()->getBackgroundColor();
+                glClearColor(color.r(), color.g(), color.b(), color.a());
+                glClear(GL_COLOR_BUFFER_BIT);
+                glfwPollEvents();
 
-        // update
-        sceneManager->getCurrentScene()->update(0); // replace 0 with deltaT
+                // update
+                sceneManager->getCurrentScene()->update(0); // replace 0 with deltaT
 
-        // draw
+                // draw
 
-        glfwSwapBuffers(windowManager->getWindow());
+                glfwSwapBuffers(window);
 
-        if (keyPressed(Keys::A)) {
-            std::cout << "A pressed" << std::endl;
+                if (keyPressed(Keys::A)) {
+                    std::cout << "A pressed" << std::endl;
+                }
+
+                // UPDATE
+                // DRAW
+            }
+            glfwSetKeyCallback(window, nullptr);
+            glfwDestroyWindow(window);
         }
 
-        // UPDATE
-        // DRAW
+        glfwTerminate();
     }
 }

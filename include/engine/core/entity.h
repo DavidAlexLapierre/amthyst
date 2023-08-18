@@ -3,7 +3,7 @@
 #include "engine/data/uuid.h"
 #include "engine/core/component.h"
 #include <typeindex>
-#include <map>
+#include <unordered_map>
 #include <memory>
 #include <vector>
 
@@ -18,9 +18,9 @@ class Entity {
         template <typename T>
         std::shared_ptr<T> getComponent();
         std::vector<std::type_index> getComponentList();
-        std::map<std::type_index, std::shared_ptr<Component>> getComponents() const;
+        std::unordered_map<std::type_index, std::shared_ptr<Component>> getComponents() const;
 
     private:
-        std::map<std::type_index, std::shared_ptr<Component>> components;
+        std::unordered_map<std::type_index, std::shared_ptr<Component>> components;
         Data::UUID _id;
 };

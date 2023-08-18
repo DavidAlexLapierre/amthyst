@@ -2,7 +2,7 @@
 
 #include "engine/core/keyboard.h"
 #include <GLFW/glfw3.h>
-#include <map>
+#include <unordered_map>
 
 enum class Keys;
 
@@ -13,6 +13,6 @@ namespace Engine::Inputs {
         static int getKey(Keys key);
 
     private:
-        static const std::map<Keys, int> keyMap;
+        static const std::unordered_map<Keys, int> keyMap;
     };
 }
