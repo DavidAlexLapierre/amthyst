@@ -1,7 +1,8 @@
 #include "engine/core/game.h"
 
 
-Game::Game() {
+Game::Game(const char* _name) {
+    name = name;
     renderingManager = std::make_shared<Engine::Managers::RenderingManager>();
     sceneManager = std::make_shared<Engine::Managers::SceneManager>();
 }
@@ -9,7 +10,7 @@ Game::Game() {
 void Game::registerScene(std::shared_ptr<Scene> scene) { sceneManager->registerScene(scene); }
 
 GLFWwindow* Game::initWindow() {
-    auto window = glfwCreateWindow(800, 600, "Game", NULL, NULL);
+    auto window = glfwCreateWindow(800, 600, name, NULL, NULL);
     if (!window) { return nullptr; }
 
     glfwMakeContextCurrent(window);

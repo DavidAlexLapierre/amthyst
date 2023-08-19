@@ -9,11 +9,12 @@
 
 class Game {
     public:
-        Game();
+        Game(const char* _name);
         void init();
         void registerScene(std::shared_ptr<Scene> scene);
 
     private:
+        const char* name;
         GLFWwindow* initWindow();
         void terminateWindow(GLFWwindow* window);
         void run(GLFWwindow* window);
