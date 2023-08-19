@@ -3,7 +3,7 @@
 
 Game::Game(const char* _name) {
     name = name;
-    renderingManager = std::make_shared<Engine::Managers::RenderingManager>();
+    renderer = std::make_shared<Engine::Rendering::Renderer>();
     sceneManager = std::make_shared<Engine::Managers::SceneManager>();
 }
 
