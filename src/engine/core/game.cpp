@@ -45,11 +45,6 @@ void Game::run(GLFWwindow* window) {
     // update
     sceneManager->getCurrentScene()->update(0); // replace 0 with deltaT
 
-    if (keyPressed(Keys::A)) {
-        std::cout << "A pressed" << std::endl;
-    }
-
     // draw
-
     glfwSwapBuffers(window);
 }
