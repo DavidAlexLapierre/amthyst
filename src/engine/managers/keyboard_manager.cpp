@@ -1,8 +1,8 @@
-#include "engine/inputs/keyboard_manager.h"
+#include "engine/managers/keyboard_manager.h"
 
-namespace Engine::Inputs {
+namespace Engine::Managers {
     KeyboardManager::KeyboardManager() {
-        keyStates = KeyStates();
+        keyStates = Inputs::KeyStates();
         alreadyPressed = false;
     }
 

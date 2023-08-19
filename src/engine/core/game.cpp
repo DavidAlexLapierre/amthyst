@@ -2,8 +2,8 @@
 
 
 Game::Game() {
-    renderer = std::make_shared<Engine::Rendering::Renderer>();
-    sceneManager = std::make_shared<Engine::ECS::SceneManager>();
+    renderingManager = std::make_shared<Engine::Managers::RenderingManager>();
+    sceneManager = std::make_shared<Engine::Managers::SceneManager>();
 }
 
 void Game::registerScene(std::shared_ptr<Scene> scene) { sceneManager->registerScene(scene); }
@@ -13,7 +13,7 @@ GLFWwindow* Game::initWindow() {
     if (!window) { return nullptr; }
 
     glfwMakeContextCurrent(window);
-    glfwSetKeyCallback(window, Engine::Inputs::InputManager::keyboardCallback);
+    glfwSetKeyCallback(window, Engine::Managers::InputManager::keyboardCallback);
 
     return window;
 }

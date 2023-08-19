@@ -1,6 +1,6 @@
-#include "engine/ECS/scene_manager.h"
+#include "engine/managers/scene_manager.h"
 
-namespace Engine::ECS {
+namespace Engine::Managers {
     SceneManager::SceneManager() {
         currentScene = nullptr;
     }

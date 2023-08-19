@@ -1,6 +1,6 @@
-#include "engine/ECS/system_manager.h"
+#include "engine/managers/system_manager.h"
 
-namespace Engine::ECS {
+namespace Engine::Managers {
 
     SystemManager::SystemManager() {
         Utils::EventHandler::instance().listen(Utils::Events::ADD_ENTITY, [this](const void *data) { addEntity(data); });

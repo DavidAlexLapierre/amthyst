@@ -1,6 +1,6 @@
 #pragma once
 
-#include "engine/inputs/input_manager.h"
+#include "engine/managers/input_manager.h"
 #include "engine/inputs/key_mapper.h"
 
 enum class Keys {

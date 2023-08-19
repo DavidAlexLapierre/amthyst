@@ -1,7 +1,7 @@
-#include "engine/inputs/input_manager.h"
+#include "engine/managers/input_manager.h"
 #include <iostream>
 
-namespace Engine::Inputs {
+namespace Engine::Managers {
 
     KeyboardManager InputManager::keyboardManager = KeyboardManager();
     

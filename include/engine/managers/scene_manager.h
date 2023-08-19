@@ -5,7 +5,7 @@
 #include <memory>
 #include <string>
 
-namespace Engine::ECS {
+namespace Engine::Managers {
     class SceneManager {
         public:
             SceneManager();

@@ -1,7 +1,7 @@
 #pragma once
 
 #include "engine/data/color.h"
-#include <engine/ECS/system_manager.h>
+#include <engine/managers/system_manager.h>
 #include <string>
 #include <vector>
 
@@ -19,6 +19,6 @@ class Scene {
         std::string name;
 
     protected:
-        Engine::ECS::SystemManager systemManager;
+        Engine::Managers::SystemManager systemManager;
         void setColor(Data::Color c);
 };

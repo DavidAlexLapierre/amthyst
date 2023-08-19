@@ -7,7 +7,7 @@
 #include <memory>
 #include <typeindex>
 
-namespace Engine::ECS {
+namespace Engine::Managers {
     class SystemManager {
         public:
             SystemManager();

@@ -2,15 +2,15 @@
 
 bool keyPressed(Keys key) {
     auto keyVal = Engine::Inputs::KeyMapper::getKey(key);
-    return Engine::Inputs::InputManager::checkKeyPressed(keyVal);
+    return Engine::Managers::InputManager::checkKeyPressed(keyVal);
 }
 
 bool keyDown(Keys key) {
     auto keyVal = Engine::Inputs::KeyMapper::getKey(key);
-    return Engine::Inputs::InputManager::checkKeyDown(keyVal);
+    return Engine::Managers::InputManager::checkKeyDown(keyVal);
 }
 
 bool keyUp(Keys key) {
     auto keyVal = Engine::Inputs::KeyMapper::getKey(key);
-    return Engine::Inputs::InputManager::checkKeyUp(keyVal);
+    return Engine::Managers::InputManager::checkKeyUp(keyVal);
 }
