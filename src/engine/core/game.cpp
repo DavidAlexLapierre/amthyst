@@ -2,8 +2,7 @@
 
 
 Game::Game(const char* _name) {
-    name = name;
-    renderer = std::make_shared<Engine::Rendering::Renderer>();
+    name = _name;
     sceneManager = std::make_shared<Engine::Managers::SceneManager>();
 }
 
@@ -38,7 +37,7 @@ void Game::init() {
 }
 
 void Game::run(GLFWwindow* window) {
-    auto color = sceneManager->getCurrentScene()->getBackgroundColor();
+    Data::Color color = sceneManager->getCurrentScene()->getBackgroundColor();
     glClearColor(color.r(), color.g(), color.b(), color.a());
     glClear(GL_COLOR_BUFFER_BIT);
     glfwPollEvents();

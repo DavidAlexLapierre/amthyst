@@ -23,7 +23,7 @@ namespace Engine::Managers {
 
     void SystemManager::update(int deltaT) {
         for (auto system : systems) {
-            system->updateEntities(deltaT);
+            system->update(deltaT);
         }
     }
 

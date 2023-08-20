@@ -12,7 +12,7 @@ void Scene::setColor(Data::Color c) {
 
 void Scene::update(int deltaT) {
     for (auto system : systemManager.getSystems()) {
-        system->updateEntities(deltaT);
+        system->update(deltaT);
     }
 }
 

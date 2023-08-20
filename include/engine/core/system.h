@@ -14,7 +14,7 @@ class System {
         virtual void init() = 0;
         void registerEntity(std::shared_ptr<Entity> entity);
         void unregisterEntity(std::string id);
-        void updateEntities(int deltaT);
+        virtual void update(int deltaT) = 0;
         std::vector<std::type_index> getComponents() const;
 
     private:
@@ -22,6 +22,5 @@ class System {
 
     protected:
         virtual void dispose() = 0;
-        virtual void update(int deltaT, std::shared_ptr<Entity> entity) = 0;
         std::unordered_map<std::string, std::shared_ptr<Entity>> entities;
 };

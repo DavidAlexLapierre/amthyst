@@ -20,7 +20,7 @@ CPP_OBJS := $(foreach src,$(CPP_SRCS),$(patsubst $(SRC_DIR)\%.cpp,$(BIN_DIR)\%.o
 C_SRCS := $(shell dir /b /s $(SRC_DIR)\*.c)
 
 # Generate corresponding .o file names in build directory for .c files
-C_OBJS := $(foreach src,$(CPP_SRCS),$(patsubst $(SRC_DIR)\%.c,$(BIN_DIR)\%.o,$(src)))
+C_OBJS := $(foreach src,$(C_SRCS),$(patsubst $(SRC_DIR)\%.c,$(BIN_DIR)\%.o,$(src)))
 
 # Output binary name and location
 TARGET := $(BIN_DIR)\amber.exe
