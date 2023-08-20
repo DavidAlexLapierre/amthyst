@@ -14,7 +14,7 @@ class System {
         virtual void init() = 0;
         void registerEntity(std::shared_ptr<Entity> entity);
         void unregisterEntity(std::string id);
-        virtual void update(int deltaT) = 0;
+        virtual void update(double deltaT) = 0;
         std::vector<std::type_index> getComponents() const;
 
     private:

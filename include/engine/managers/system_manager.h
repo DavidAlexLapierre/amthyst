@@ -11,7 +11,7 @@ namespace Engine::Managers {
     class SystemManager {
         public:
             SystemManager();
-            void update(int deltaT);
+            void update(double deltaT);
             void registerSystem(std::shared_ptr<System> system);
             std::vector<std::shared_ptr<System>> getSystems();
 

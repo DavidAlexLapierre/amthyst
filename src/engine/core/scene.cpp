@@ -10,7 +10,7 @@ void Scene::setColor(Data::Color c) {
     backgroundColor = Data::Color(c);
 }
 
-void Scene::update(int deltaT) {
+void Scene::update(double deltaT) {
     for (auto system : systemManager.getSystems()) {
         system->update(deltaT);
     }

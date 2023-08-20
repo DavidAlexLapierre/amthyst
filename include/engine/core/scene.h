@@ -13,7 +13,7 @@ class Scene {
         virtual void dispose() = 0;
         const std::string getName();
         Data::Color getBackgroundColor();
-        void update(int deltaT);
+        void update(double deltaT);
 
     private:
         Data::Color backgroundColor;

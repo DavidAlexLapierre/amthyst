@@ -29,7 +29,7 @@ void Game::terminateWindow(GLFWwindow* window) {
         glfwSetKeyCallback(window, nullptr);
         glfwDestroyWindow(window);
     }
-    
+
     glfwTerminate();
 }
 
@@ -37,8 +37,9 @@ void Game::init() {
     if (glfwInit()) {
         auto window = initWindow();
         if (window) {
+            double previousDeltaT = glfwGetTime();
             while (!glfwWindowShouldClose(window)) {
-                run(window);
+                previousDeltaT = run(window, previousDeltaT);
             }
         }
 
@@ -46,18 +47,22 @@ void Game::init() {
     }
 }
 
-void Game::run(GLFWwindow* window) {
+double Game::run(GLFWwindow* window, double previousDeltaT) {
+    double currentTime = glfwGetTime();
+    double deltaT = currentTime - previousDeltaT;
     Data::Color color = sceneManager->getCurrentScene()->getBackgroundColor();
     glClearColor(color.r(), color.g(), color.b(), color.a());
     glClear(GL_COLOR_BUFFER_BIT);
     glfwPollEvents();
 
     // update
-    sceneManager->getCurrentScene()->update(0); // replace 0 with deltaT
+    sceneManager->getCurrentScene()->update(deltaT); // replace 0 with deltaT
 
     // draw
+    renderer->update(deltaT);
+    renderer->draw();
 
-    //renderer->update(0);
-    //renderer->draw();
     glfwSwapBuffers(window);
+
+    return currentTime;
 }

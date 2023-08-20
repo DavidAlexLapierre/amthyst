@@ -21,7 +21,7 @@ namespace Engine::Managers {
         systems.push_back(system);
     }
 
-    void SystemManager::update(int deltaT) {
+    void SystemManager::update(double deltaT) {
         for (auto system : systems) {
             system->update(deltaT);
         }
