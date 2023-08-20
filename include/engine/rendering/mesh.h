@@ -4,7 +4,7 @@
 #include "engine/core/component.h"
 
 namespace Engine::Rendering {
-    struct Mesh : Component {
+    struct Mesh : public Component {
         public:
             Mesh(GLuint _vaoId, int _vertexCount);
             int getVaoId();

@@ -2,9 +2,26 @@
 
 namespace Engine::Rendering {
 
-    void Renderer::update(int deltaT) {
-        //auto mesh = entity->getComponent<Mesh>();
-        //render(mesh);
+    Renderer::Renderer() {
+        //Utils::EventHandler::instance().listen(Utils::Events::ADD_ENTITY, [this](const void *data) { registerEntity(data); });
+    }
+
+    void Renderer::registerEntity(const void* data) {
+        /*if (data) {
+            auto entity = Utils::EventHandler::instance().toSharedPtr<Entity>(data);
+            entities[entity->id().toString()] = entity;
+        }*/
+    }
+
+    void Renderer::update(double deltaT) {
+
+    }
+
+    void Renderer::draw() {
+        /*for (auto entity : entities) {
+            auto mesh = entity.second.get()->getComponent<Mesh>();
+            render(mesh);
+        }*/
     }
 
     void Renderer::render(std::shared_ptr<Mesh> mesh) {
@@ -13,13 +30,5 @@ namespace Engine::Rendering {
         glDrawArrays(GL_TRIANGLES, 0, mesh->getVertexCount());
         glDisableVertexAttribArray(0);
         glBindVertexArray(0);
-    }
-
-    void Renderer::init() {
-
-    }
-
-    void Renderer::dispose() {
-
     }
 }

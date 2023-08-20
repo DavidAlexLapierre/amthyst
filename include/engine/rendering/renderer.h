@@ -1,19 +1,24 @@
 #pragma once
 
 #include "engine/rendering/mesh.h"
-#include "engine/core/system.h"
+#include "engine/utils/event_handler.h"
+#include "engine/core/entity.h"
+#include <string>
+#include <memory>
+#include <unordered_map>
 
 namespace Engine::Rendering {
-    class Renderer : public System {
+    class Mesh;
+
+    class Renderer {
         public:
-            Renderer(std::vector<std::type_index> components) : System(components) {}
-            void init() override;
+            Renderer();
+            void update(double deltaT);
+            void draw();
 
         private:
             void render(std::shared_ptr<Mesh> mesh);
-
-        protected:
-            void dispose() override;
-            void update(int deltaT) override;
+            void registerEntity(const void* data);
+            std::unordered_map<std::string, std::shared_ptr<Entity>> entities;
     };
 }

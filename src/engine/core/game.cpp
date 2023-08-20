@@ -3,6 +3,7 @@
 
 Game::Game(const char* _name) {
     name = _name;
+    renderer = std::make_shared<Engine::Rendering::Renderer>();
     sceneManager = std::make_shared<Engine::Managers::SceneManager>();
 }
 
@@ -13,14 +14,23 @@ GLFWwindow* Game::initWindow() {
     if (!window) { return nullptr; }
 
     glfwMakeContextCurrent(window);
+
+    if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress)) {
+        return nullptr;
+    }
+
     glfwSetKeyCallback(window, Engine::Managers::InputManager::keyboardCallback);
 
     return window;
 }
 
 void Game::terminateWindow(GLFWwindow* window) {
-    glfwSetKeyCallback(window, nullptr);
-    glfwDestroyWindow(window);
+    if (window) {
+        glfwSetKeyCallback(window, nullptr);
+        glfwDestroyWindow(window);
+    }
+    
+    glfwTerminate();
 }
 
 void Game::init() {
@@ -30,9 +40,9 @@ void Game::init() {
             while (!glfwWindowShouldClose(window)) {
                 run(window);
             }
-            terminateWindow(window);
         }
-        glfwTerminate();
+
+        terminateWindow(window);
     }
 }
 
@@ -46,5 +56,8 @@ void Game::run(GLFWwindow* window) {
     sceneManager->getCurrentScene()->update(0); // replace 0 with deltaT
 
     // draw
+
+    //renderer->update(0);
+    //renderer->draw();
     glfwSwapBuffers(window);
 }

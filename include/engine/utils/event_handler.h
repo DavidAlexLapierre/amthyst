@@ -5,6 +5,7 @@
 #include <functional>
 #include <unordered_map>
 #include <vector>
+#include <memory>
 
 namespace Engine::Utils {
     class EventHandler {
