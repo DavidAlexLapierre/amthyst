@@ -1,6 +1,7 @@
 #pragma once
 
 #include "engine/rendering/mesh.h"
+#include "engine/rendering/geometry.h"
 #include <vector>
 
 namespace Engine::Rendering {

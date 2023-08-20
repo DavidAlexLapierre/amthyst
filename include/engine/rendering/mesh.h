@@ -1,17 +1,16 @@
 #pragma once
 
 #include <glad/glad.h>
+#include "engine/rendering/geometry.h"
 #include "engine/core/component.h"
 
 namespace Engine::Rendering {
     struct Mesh : public Component {
         public:
-            Mesh(GLuint _vaoId, int _vertexCount);
-            int getVaoId();
-            int getVertexCount();
+            int getVaoId() const { return vaoId; }
+            Geometry geometry;
 
         private:
             GLuint vaoId;
-            int vertexCount;
     };
 }

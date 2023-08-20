@@ -5,8 +5,13 @@ namespace Engine::Rendering {
         GLuint vaoId = createVao();
         storeDataInAttributeList(0, positions);
         unbindVao();
+        auto geoData = Geometry();
+        geoData.vertices = positions;
 
-        return Mesh(vaoId, positions.size()/3);
+        auto mesh = Mesh();
+        mesh.geometry = geoData;
+
+        return mesh;
     }
 
     GLuint MeshLoader::createVao() {
