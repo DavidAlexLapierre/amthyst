@@ -1,6 +1,7 @@
 #pragma once
 
 #include "engine/core/scene.h"
+#include "content/entities/player.h"
 
 namespace Content {
     class MainScene : public Scene {

@@ -36,6 +36,9 @@ namespace Engine::Rendering {
         for (auto vbo : vbos) {
             glDeleteBuffers(1, &vbo.second);
         }
+
+        vaos.clear();
+        vbos.clear();
     }
 
     GLuint MeshLoader::getVao(std::string id) {

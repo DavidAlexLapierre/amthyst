@@ -11,8 +11,10 @@ class Entity {
     public:
         Entity();
         Data::UUID id();
-        virtual void init() = 0;
-        virtual void dispose() = 0;
+
+        virtual void init() {}
+        virtual void dispose() {}
+
         template <typename T>
         void addComponent(std::shared_ptr<T> component) {
             static_assert(std::is_base_of<Component, T>::value, "T must be derived from Component");

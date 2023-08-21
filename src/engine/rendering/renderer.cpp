@@ -4,21 +4,26 @@ namespace Engine::Rendering {
 
     Renderer::Renderer() {
         loader = MeshLoader();
-        Utils::EventHandler::instance().listen(Utils::Events::ADD_ENTITY, [this](const void *data) { registerEntity(data); });
     }
 
-    void Renderer::registerEntity(const void* data) {
-        if (data) {
-            auto entity = Utils::EventHandler::instance().toSharedPtr<Entity>(data);
-            entities[entity->id().toString()] = entity;
+    void Renderer::registerEntity(std::shared_ptr<Entity> entity) {
+        if (entity) {
             auto mesh = entity->getComponent<Mesh>();
-            auto id = entity->id().toString();
-            loader.loadToVao(entity->id(), mesh);
+            if (mesh) {
+                entities[entity->id().toString()] = entity;
+                auto id = entity->id().toString();
+                loader.loadToVao(entity->id(), mesh);
+            }
         }
     }
 
-    void Renderer::update(double deltaT) {
+    void Renderer::cleanEntityRegistry() {
+        loader.dispose();
+        entities.clear();
+    }
 
+    void Renderer::update(double deltaT) {
+        // ADD SPECIFIC SYSTEM UPDATE LOGIC LIKE ANIMATION/SPRITE/ETC
     }
 
     void Renderer::draw() {
