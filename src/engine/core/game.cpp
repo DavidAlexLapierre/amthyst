@@ -59,7 +59,12 @@ double Game::run(double previousDeltaT) {
     Data::Color color = sceneManager->getCurrentScene()->getBackgroundColor();
     glClearColor(color.r(), color.g(), color.b(), color.a());
     glClear(GL_COLOR_BUFFER_BIT);
-    glfwPollEvents();
+    glfwPollEvents();\
+
+
+    if (keyPressed(Keys::F1)) {
+        glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
+    }
 
     // update
     sceneManager->getCurrentScene()->update(deltaT);

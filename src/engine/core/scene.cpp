@@ -1,7 +1,7 @@
 #include "engine/core/scene.h"
 Scene::Scene(const std::string _name) {
     name = _name;
-    backgroundColor = Data::Color(20, 20, 20);
+    backgroundColor = Data::Color(255, 255, 255);
     systemManager = std::make_unique<Engine::Managers::SystemManager>();
 }
 
