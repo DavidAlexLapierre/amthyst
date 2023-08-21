@@ -1,6 +1,7 @@
 #pragma once
 
 #include <glad/glad.h>
+#include <GLFW/glfw3.h>
 #include "engine/rendering/mesh.h"
 #include "engine/rendering/geometry.h"
 #include "engine/data/uuid.h"

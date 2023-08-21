@@ -9,13 +9,15 @@
 class Game {
     public:
         Game(const char* _name);
+        ~Game();
         void init();
         void registerScene(std::shared_ptr<Scene> scene);
 
     private:
+        GLFWwindow* window;
         const char* name;
-        GLFWwindow* initWindow();
-        void terminateWindow(GLFWwindow* window);
-        double run(GLFWwindow* window, double previousDeltaT);
+        void initWindow();
+        void terminateWindow();
+        double run(double previousDeltaT);
         std::unique_ptr<Engine::Managers::SceneManager> sceneManager;
 };

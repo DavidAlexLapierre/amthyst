@@ -4,31 +4,36 @@
 Game::Game(const char* _name) {
     name = _name;
     sceneManager = std::make_unique<Engine::Managers::SceneManager>();
+    if (glfwInit()) {
+        initWindow();
+    }
+}
+
+Game::~Game() {
+    terminateWindow();
 }
 
 void Game::registerScene(std::shared_ptr<Scene> scene) { sceneManager->registerScene(scene); }
 
-GLFWwindow* Game::initWindow() {
+void Game::initWindow() {
 
     glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
     glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
     glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 
-    auto window = glfwCreateWindow(800, 600, name, NULL, NULL);
-    if (!window) { return nullptr; }
+    window = glfwCreateWindow(800, 600, name, NULL, NULL);
+    if (!window) { return; }
 
     glfwMakeContextCurrent(window);
 
     if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress)) {
-        return nullptr;
+        return;
     }
 
     glfwSetKeyCallback(window, Engine::Managers::InputManager::keyboardCallback);
-
-    return window;
 }
 
-void Game::terminateWindow(GLFWwindow* window) {
+void Game::terminateWindow() {
     if (window) {
         glfwSetKeyCallback(window, nullptr);
         glfwDestroyWindow(window);
@@ -38,20 +43,17 @@ void Game::terminateWindow(GLFWwindow* window) {
 }
 
 void Game::init() {
-    if (glfwInit()) {
-        auto window = initWindow();
-        if (window) {
-            double previousDeltaT = glfwGetTime();
-            while (!glfwWindowShouldClose(window)) {
-                previousDeltaT = run(window, previousDeltaT);
-            }
+    if (window) {
+        double previousDeltaT = glfwGetTime();
+        while (!glfwWindowShouldClose(window)) {
+            previousDeltaT = run(previousDeltaT);
         }
-
-        terminateWindow(window);
     }
+
+    terminateWindow();
 }
 
-double Game::run(GLFWwindow* window, double previousDeltaT) {
+double Game::run(double previousDeltaT) {
     double currentTime = glfwGetTime();
     double deltaT = currentTime - previousDeltaT;
     Data::Color color = sceneManager->getCurrentScene()->getBackgroundColor();

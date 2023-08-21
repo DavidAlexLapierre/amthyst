@@ -1,6 +1,7 @@
 #pragma once
 
 #include "engine/core/entity.h"
+#include "engine/rendering/geometry.h"
 #include "engine/rendering/mesh.h"
 #include <memory>
 
