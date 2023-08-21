@@ -18,10 +18,10 @@ class Scene : public std::enable_shared_from_this<Scene> {
         void createEntity(std::shared_ptr<Entity> entity);
 
     private:
+        std::unique_ptr<Engine::Managers::SystemManager> systemManager;
         Data::Color backgroundColor;
         std::string name;
 
     protected:
-        std::unique_ptr<Engine::Managers::SystemManager> systemManager;
         void setColor(Data::Color c);
 };
