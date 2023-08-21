@@ -1,12 +1,8 @@
 #include "engine/core/scene.h"
-
 Scene::Scene(const std::string _name) {
     name = _name;
     backgroundColor = Data::Color(20, 20, 20);
-}
-
-void Scene::init() {
-    systemManager = std::make_shared<Engine::Managers::SystemManager>(shared_from_this());
+    systemManager = std::make_unique<Engine::Managers::SystemManager>();
 }
 
 void Scene::setColor(Data::Color c) {

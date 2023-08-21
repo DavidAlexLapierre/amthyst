@@ -4,7 +4,7 @@
 Game::Game(const char* _name) {
     name = _name;
     renderer = std::make_shared<Engine::Rendering::Renderer>();
-    sceneManager = std::make_shared<Engine::Managers::SceneManager>();
+    sceneManager = std::make_unique<Engine::Managers::SceneManager>();
 }
 
 void Game::registerScene(std::shared_ptr<Scene> scene) { sceneManager->registerScene(scene); }

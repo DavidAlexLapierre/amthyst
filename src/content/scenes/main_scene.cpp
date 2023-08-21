@@ -3,7 +3,8 @@
 
 namespace Content {
     void MainScene::init() {
-        Scene::init();
+        auto player = std::make_shared<Player>();
+        systemManager->createEntity(player);
     }
 
     void MainScene::dispose() {

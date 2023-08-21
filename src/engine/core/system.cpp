@@ -1,6 +1,7 @@
 #include "engine/core/system.h"
 
-System::System(std::vector<std::type_index> components) {
+System::System(std::shared_ptr<Engine::Managers::SystemManager> _systemManager, std::vector<std::type_index> components) {
+    systemManager = _systemManager;
     registeredComponents = components;
 }
 

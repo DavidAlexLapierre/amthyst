@@ -3,14 +3,19 @@
 #include "engine/core/component.h"
 #include "engine/core/entity.h"
 #include "engine/data/uuid.h"
+#include "engine/managers/system_manager.h"
 #include <unordered_map>
 #include <memory>
 #include <typeindex>
 #include <string>
 
+namespace Engine::Managers {
+    class SystemManager;
+}
+
 class System {
     public:
-        System(std::vector<std::type_index> components);
+        System(std::shared_ptr<Engine::Managers::SystemManager> systemManager, std::vector<std::type_index> components);
         virtual void init() = 0;
         void registerEntity(std::shared_ptr<Entity> entity);
         void unregisterEntity(std::string id);
@@ -21,6 +26,7 @@ class System {
         std::vector<std::type_index> registeredComponents;
 
     protected:
+        std::shared_ptr<Engine::Managers::SystemManager> systemManager;
         virtual void dispose() = 0;
         std::unordered_map<std::string, std::shared_ptr<Entity>> entities;
 };

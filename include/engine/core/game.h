@@ -19,5 +19,5 @@ class Game {
         void terminateWindow(GLFWwindow* window);
         double run(GLFWwindow* window, double previousDeltaT);
         std::shared_ptr<Engine::Rendering::Renderer> renderer;
-        std::shared_ptr<Engine::Managers::SceneManager> sceneManager;
+        std::unique_ptr<Engine::Managers::SceneManager> sceneManager;
 };
