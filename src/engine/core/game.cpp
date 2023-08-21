@@ -66,6 +66,10 @@ double Game::run(double previousDeltaT) {
         glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
     }
 
+    if (keyPressed(Keys::F2)) {
+        glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
+    }
+
     // update
     sceneManager->getCurrentScene()->update(deltaT);
 
