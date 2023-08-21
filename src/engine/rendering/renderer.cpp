@@ -3,7 +3,12 @@
 namespace Engine::Rendering {
 
     Renderer::Renderer() {
-        loader = MeshLoader();
+        loader = std::make_unique<MeshLoader>();
+    }
+
+    Renderer::~Renderer() {
+        loader->dispose();
+        entities.clear();
     }
 
     void Renderer::registerEntity(std::shared_ptr<Entity> entity) {
@@ -12,14 +17,9 @@ namespace Engine::Rendering {
             if (mesh) {
                 entities[entity->id().toString()] = entity;
                 auto id = entity->id().toString();
-                loader.loadToVao(entity->id(), mesh);
+                loader->loadToVao(entity->id(), mesh);
             }
         }
-    }
-
-    void Renderer::cleanEntityRegistry() {
-        loader.dispose();
-        entities.clear();
     }
 
     void Renderer::update(double deltaT) {
@@ -35,7 +35,7 @@ namespace Engine::Rendering {
     }
 
     void Renderer::render(std::shared_ptr<Mesh> mesh, std::string id) {
-        glBindVertexArray(loader.getVao(id));
+        glBindVertexArray(loader->getVao(id));
         glEnableVertexAttribArray(0);
         glDrawArrays(GL_TRIANGLES, 0, mesh->geometry.vertexCount());
         glDisableVertexAttribArray(0);

@@ -3,13 +3,17 @@
 
 Game::Game(const char* _name) {
     name = _name;
-    renderer = std::make_shared<Engine::Rendering::Renderer>();
     sceneManager = std::make_unique<Engine::Managers::SceneManager>();
 }
 
 void Game::registerScene(std::shared_ptr<Scene> scene) { sceneManager->registerScene(scene); }
 
 GLFWwindow* Game::initWindow() {
+
+    glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
+    glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
+    glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
+
     auto window = glfwCreateWindow(800, 600, name, NULL, NULL);
     if (!window) { return nullptr; }
 
@@ -56,11 +60,10 @@ double Game::run(GLFWwindow* window, double previousDeltaT) {
     glfwPollEvents();
 
     // update
-    sceneManager->getCurrentScene()->update(deltaT); // replace 0 with deltaT
+    sceneManager->getCurrentScene()->update(deltaT);
 
     // draw
-    renderer->update(deltaT);
-    renderer->draw();
+    sceneManager->getCurrentScene()->draw();
 
     glfwSwapBuffers(window);
 

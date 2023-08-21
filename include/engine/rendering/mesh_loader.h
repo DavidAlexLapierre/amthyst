@@ -1,5 +1,6 @@
 #pragma once
 
+#include <glad/glad.h>
 #include "engine/rendering/mesh.h"
 #include "engine/rendering/geometry.h"
 #include "engine/data/uuid.h"

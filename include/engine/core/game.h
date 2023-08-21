@@ -1,7 +1,6 @@
 #pragma once
 
 #include <glad/glad.h>
-#include "engine/rendering/renderer.h"
 #include "engine/managers/scene_manager.h"
 #include "engine/core/keyboard.h"
 #include <memory>
@@ -18,6 +17,5 @@ class Game {
         GLFWwindow* initWindow();
         void terminateWindow(GLFWwindow* window);
         double run(GLFWwindow* window, double previousDeltaT);
-        std::shared_ptr<Engine::Rendering::Renderer> renderer;
         std::unique_ptr<Engine::Managers::SceneManager> sceneManager;
 };

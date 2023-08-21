@@ -1,6 +1,11 @@
 #include "engine/managers/system_manager.h"
 
 namespace Engine::Managers {
+    
+    SystemManager::SystemManager() {
+        renderer = std::make_shared<Engine::Rendering::Renderer>();
+    }
+
     void SystemManager::registerSystem(std::shared_ptr<System> system) {
         systems.push_back(system);
     }
@@ -9,7 +14,10 @@ namespace Engine::Managers {
         for (auto system : systems) {
             system->update(deltaT);
         }
+        renderer->update(deltaT);
     }
+
+    void SystemManager::draw() { renderer->draw(); }
 
     std::vector<std::shared_ptr<System>> SystemManager::getSystems() { return systems; }
 
@@ -26,12 +34,13 @@ namespace Engine::Managers {
 
     void SystemManager::createEntity(std::shared_ptr<Entity> entity) {
         if (entity) {
+            entity->init();
             for (auto system : systems) {
                 if (entityMatchesSystem(entity, system)) {
                     system->registerEntity(entity);
                 }
             }
-            entity->init();
+            renderer->registerEntity(entity);
         }
     }
 }

@@ -14,5 +14,7 @@ void System::unregisterEntity(std::string id) {
     entities.erase(id);
 }
 
+void System::createEntity(std::shared_ptr<Entity> entity) { systemManager->createEntity(entity); }
+
 std::vector<std::type_index> System::getComponents() const { return registeredComponents; }
 

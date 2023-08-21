@@ -15,7 +15,11 @@ void Scene::update(double deltaT) {
     }
 }
 
-void Scene::createEntity(std::shared_ptr<Entity> entity) { systemManager->createEntity(entity); }
+void Scene::draw() { systemManager->draw(); }
+
+void Scene::createEntity(std::shared_ptr<Entity> entity) {
+    systemManager->createEntity(entity);
+}
 
 Data::Color Scene::getBackgroundColor() { return backgroundColor; }
 const std::string Scene::getName() { return name; }

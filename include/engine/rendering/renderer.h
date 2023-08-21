@@ -13,14 +13,14 @@ namespace Engine::Rendering {
     class Renderer {
         public:
             Renderer();
+            ~Renderer();
             void update(double deltaT);
             void draw();
+            void registerEntity(std::shared_ptr<Entity> entity);
 
         private:
             void render(std::shared_ptr<Mesh> mesh, std::string id);
-            void registerEntity(std::shared_ptr<Entity> entity);
-            void cleanEntityRegistry();
-            MeshLoader loader;
+            std::unique_ptr<MeshLoader> loader;
             std::unordered_map<std::string, std::shared_ptr<Entity>> entities;
     };
 }

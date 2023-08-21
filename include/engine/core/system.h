@@ -17,6 +17,7 @@ class System {
     public:
         System(std::shared_ptr<Engine::Managers::SystemManager> systemManager, std::vector<std::type_index> components);
         virtual void init() = 0;
+        void createEntity(std::shared_ptr<Entity> entity);
         void registerEntity(std::shared_ptr<Entity> entity);
         void unregisterEntity(std::string id);
         virtual void update(double deltaT) = 0;

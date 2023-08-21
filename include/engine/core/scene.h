@@ -1,6 +1,7 @@
 #pragma once
 
 #include "engine/managers/system_manager.h"
+#include "engine/rendering/renderer.h"
 #include "engine/data/color.h"
 #include "engine/core/entity.h"
 #include <string>
@@ -15,9 +16,11 @@ class Scene : public std::enable_shared_from_this<Scene> {
         const std::string getName();
         Data::Color getBackgroundColor();
         void update(double deltaT);
+        void draw();
         void createEntity(std::shared_ptr<Entity> entity);
 
     private:
+        std::shared_ptr<Engine::Rendering::Renderer> renderer;
         std::unique_ptr<Engine::Managers::SystemManager> systemManager;
         Data::Color backgroundColor;
         std::string name;
