@@ -1,6 +1,11 @@
 #include "engine/managers/system_manager.h"
 
 namespace Engine::Managers {
+
+    SystemManager::SystemManager(std::shared_ptr<Scene> _scene) {
+        scene = _scene;
+    }
+
     void SystemManager::registerSystem(std::shared_ptr<System> system) {
         systems.push_back(system);
     }
@@ -22,5 +27,13 @@ namespace Engine::Managers {
         }
 
         return true;
+    }
+
+    void SystemManager::createEntity(std::shared_ptr<Entity> entity) {
+        for (auto system : systems) {
+            if (entityMatchesSystem(entity, system)) {
+                system->registerEntity(entity);
+            }
+        }
     }
 }

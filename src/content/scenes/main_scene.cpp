@@ -3,7 +3,7 @@
 
 namespace Content {
     void MainScene::init() {
-    
+        Scene::init();
     }
 
     void MainScene::dispose() {
