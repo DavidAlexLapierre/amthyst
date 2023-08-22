@@ -3,8 +3,7 @@
 
 namespace Content {
     void Player::init() {
-        auto mesh = Amethyst::MeshBuilder::createSprite();
-        addComponent(mesh);
+        addComponent(Amethyst::MeshBuilder::createSprite());
     }
 
     void Player::dispose() {
