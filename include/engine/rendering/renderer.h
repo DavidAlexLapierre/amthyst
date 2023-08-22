@@ -12,15 +12,14 @@ namespace Amethyst {
 
     class Renderer {
         public:
-            Renderer();
-            ~Renderer();
+            void dispose();
             void update(double deltaT);
             void draw();
             void registerEntity(std::shared_ptr<Entity> entity);
 
         private:
             void render(std::shared_ptr<Mesh> mesh, std::string id);
-            std::unique_ptr<MeshLoader> loader;
+            MeshLoader loader;
             std::unordered_map<std::string, std::shared_ptr<Entity>> entities;
     };
 }

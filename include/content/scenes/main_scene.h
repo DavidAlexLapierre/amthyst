@@ -8,6 +8,5 @@ namespace Content {
         public:
             MainScene(const std::string name) : Scene(name) {}
             void init() override;
-            void dispose() override;
     };
 }

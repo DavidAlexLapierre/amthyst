@@ -5,7 +5,4 @@ namespace Content {
     void MainScene::init() {
         createEntity(std::make_shared<Player>());
     }
-
-    void MainScene::dispose() {
-    }
 }

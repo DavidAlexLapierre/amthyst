@@ -2,11 +2,15 @@
 Scene::Scene(const std::string _name) {
     name = _name;
     backgroundColor = Amethyst::Color(255, 255, 255);
-    systemManager = std::make_unique<Amethyst::SystemManager>();
+    systemManager = std::make_shared<Amethyst::SystemManager>();
 }
 
 void Scene::setColor(Amethyst::Color c) {
     backgroundColor = Amethyst::Color(c);
+}
+
+void Scene::dispose() {
+    systemManager->dispose();
 }
 
 void Scene::update(double deltaT) { systemManager->update(deltaT); }

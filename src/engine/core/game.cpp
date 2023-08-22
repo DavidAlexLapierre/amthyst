@@ -4,13 +4,10 @@
 Game::Game(const char* _name) {
     name = _name;
     sceneManager = std::make_unique<Amethyst::SceneManager>();
-    if (glfwInit()) {
+    initStatus = glfwInit();
+    if (initStatus) {
         initWindow();
     }
-}
-
-Game::~Game() {
-    terminateWindow();
 }
 
 void Game::registerScene(std::shared_ptr<Scene> scene) { sceneManager->registerScene(scene); }
@@ -38,20 +35,21 @@ void Game::terminateWindow() {
         glfwSetKeyCallback(window, nullptr);
         glfwDestroyWindow(window);
     }
-
     glfwTerminate();
 }
 
 void Game::init() {
-    if (window) {
-        double previousDeltaT = glfwGetTime();
-        while (!glfwWindowShouldClose(window)) {
-            previousDeltaT = run(previousDeltaT);
-            if (previousDeltaT < 0) break;
+    if (initStatus) {
+        if (window) {
+            double previousDeltaT = glfwGetTime();
+            while (!glfwWindowShouldClose(window)) {
+                previousDeltaT = run(previousDeltaT);
+                if (previousDeltaT < 0) break;
+            }
         }
-    }
 
-    terminateWindow();
+        terminateWindow();
+    }
 }
 
 double Game::run(double previousDeltaT) {

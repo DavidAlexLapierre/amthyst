@@ -17,6 +17,11 @@ namespace Amethyst {
         renderer->update(deltaT);
     }
 
+    void SystemManager::dispose() {
+        systems.clear();
+        renderer->dispose();
+    }
+
     void SystemManager::draw() { renderer->draw(); }
 
     std::vector<std::shared_ptr<System>> SystemManager::getSystems() { return systems; }

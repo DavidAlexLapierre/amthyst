@@ -3,7 +3,7 @@
 
 int main() {
     auto game = Game("Amethyst");
-    game.registerScene(std::make_shared<Content::MainScene>("MainScene"));
+    game.registerScene(std::make_shared<Content::MainScene>("mainScene"));
     game.init();
 
     return 0;

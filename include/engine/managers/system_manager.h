@@ -13,6 +13,7 @@ namespace Amethyst {
     class SystemManager {
         public:
             SystemManager();
+            void dispose();
             void update(double deltaT);
             void draw();
             void createEntity(std::shared_ptr<Entity> entity);

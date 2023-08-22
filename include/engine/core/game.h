@@ -9,11 +9,11 @@
 class Game {
     public:
         Game(const char* _name);
-        ~Game();
         void init();
         void registerScene(std::shared_ptr<Scene> scene);
 
     private:
+        int initStatus;
         GLFWwindow* window;
         const char* name;
         void initWindow();
