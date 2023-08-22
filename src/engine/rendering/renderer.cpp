@@ -1,5 +1,4 @@
 #include "engine/rendering/renderer.h"
-#include <iostream>
 
 namespace Amethyst {
     void Renderer::dispose() {

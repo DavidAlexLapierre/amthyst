@@ -4,11 +4,11 @@ INCLUDE_DIR := -I.\include -I.\libs\include
 BIN_DIR := .\bin
 LIBS_DIR := .\libs
 GLFWFLAG := -lglfw3 -lopengl32 -lgdi32
-GDBFLAG := -Wno-unused-parameter
+FLAGS := -Wno-unused-parameter -Wl,-subsystem,windows
 
 # Compiler and flags for cross-compiling to Windows
 CXX := g++
-CXXFLAGS := -g -std=c++2a -Wall -Wextra $(GDBFLAG) $(INCLUDE_DIR) -L$(LIBS_DIR)
+CXXFLAGS := -g -std=c++2a -Wall -Wextra $(FLAGS) $(INCLUDE_DIR) -L$(LIBS_DIR)
 
 # Find all .cpp files in src directory and its subdirectories
 CPP_SRCS := $(shell dir /b /s $(SRC_DIR)\*.cpp)

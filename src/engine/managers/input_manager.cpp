@@ -1,5 +1,4 @@
 #include "engine/managers/input_manager.h"
-#include <iostream>
 
 namespace Amethyst {
 
