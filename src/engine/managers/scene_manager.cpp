@@ -5,7 +5,7 @@ namespace Amethyst {
         currentScene = nullptr;
     }
 
-    SceneManager::~SceneManager() {
+    void SceneManager::dispose() {
         for (const auto& scene : scenes) {
             scene.second->dispose();
         }

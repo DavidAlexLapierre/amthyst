@@ -48,6 +48,7 @@ void Game::init() {
             }
         }
 
+        sceneManager->dispose();
         terminateWindow();
     }
 }

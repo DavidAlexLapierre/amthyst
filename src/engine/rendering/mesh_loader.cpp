@@ -4,7 +4,7 @@ namespace Amethyst {
     void MeshLoader::loadToVao(Amethyst::UUID entityId, std::shared_ptr<Mesh> mesh) {
         createVao(entityId.toString());
         storeDataInAttributeList(entityId.toString(), 0, mesh->geometry.vertices);
-        unbindVao();
+        glBindVertexArray(0);
     }
 
     void MeshLoader::createVao(std::string id) {
@@ -24,17 +24,15 @@ namespace Amethyst {
         vbos[id] = vbo;
     }
 
-    void MeshLoader::unbindVao() {
-        glBindVertexArray(0);
-    }
-
     void MeshLoader::dispose() {
-        for (auto vao : vaos) {
-            glDeleteVertexArrays(1, &vao.second);
+        for (auto pair : vaos) {
+            GLuint vao = pair.second;
+            glDeleteVertexArrays(1, &vao);
         }
 
-        for (auto vbo : vbos) {
-            glDeleteBuffers(1, &vbo.second);
+        for (auto pair : vbos) {
+            GLuint vbo = pair.second;
+            glDeleteBuffers(1, &vbo);
         }
 
         vaos.clear();

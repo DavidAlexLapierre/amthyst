@@ -22,6 +22,5 @@ namespace Amethyst {
             std::unordered_map<std::string, GLuint> vaos;
             std::unordered_map<std::string, GLuint> vbos;
             void storeDataInAttributeList(std::string id, int attributeNumber, std::vector<float> data);
-            void unbindVao();
     };
 }
