@@ -23,7 +23,7 @@ C_SRCS := $(shell dir /b /s $(SRC_DIR)\*.c)
 C_OBJS := $(foreach src,$(C_SRCS),$(patsubst $(SRC_DIR)\%.c,$(BIN_DIR)\%.o,$(src)))
 
 # Output binary name and location
-TARGET := $(BIN_DIR)\amber.exe
+TARGET := $(BIN_DIR)\amethyst.exe
 
 # DLL files to be copied
 DLL_FILES := $(wildcard *.dll)
