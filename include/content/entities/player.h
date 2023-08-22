@@ -7,7 +7,7 @@
 
 namespace Content {
     class Player : public Entity {
-        void init() override;
-        void dispose() override;
+        public:
+            void init() override;
     };
 }
