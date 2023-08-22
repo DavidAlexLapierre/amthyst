@@ -1,4 +1,5 @@
 #include "engine/rendering/renderer.h"
+#include <iostream>
 
 namespace Amethyst {
 
@@ -24,6 +25,8 @@ namespace Amethyst {
 
     void Renderer::update(double deltaT) {
         // ADD SPECIFIC SYSTEM UPDATE LOGIC LIKE ANIMATION/SPRITE/ETC
+
+        std::cout << deltaT << std::endl;
     }
 
     void Renderer::draw() {

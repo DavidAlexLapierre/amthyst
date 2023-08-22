@@ -9,11 +9,7 @@ void Scene::setColor(Amethyst::Color c) {
     backgroundColor = Amethyst::Color(c);
 }
 
-void Scene::update(double deltaT) {
-    for (auto system : systemManager->getSystems()) {
-        system->update(deltaT);
-    }
-}
+void Scene::update(double deltaT) { systemManager->update(deltaT); }
 
 void Scene::draw() { systemManager->draw(); }
 

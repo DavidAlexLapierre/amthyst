@@ -56,7 +56,7 @@ void Game::init() {
 
 double Game::run(double previousDeltaT) {
     double currentTime = glfwGetTime();
-    double deltaT = currentTime - previousDeltaT;
+    auto deltaT = (currentTime - previousDeltaT)*1000;
     auto scene = sceneManager->getCurrentScene();
     if (!scene) return -1; // ADD LOGGING FOR NO SCENE
     Amethyst::Color color = scene->getBackgroundColor();
