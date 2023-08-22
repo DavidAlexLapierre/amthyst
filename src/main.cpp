@@ -1,6 +1,5 @@
 #include "engine/core/game.h"
 #include "content/scenes/main_scene.h"
-#include <memory>
 
 int main() {
     auto game = Game("Amethyst");
