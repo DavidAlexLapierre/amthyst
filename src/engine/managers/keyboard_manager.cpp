@@ -1,8 +1,8 @@
 #include "engine/managers/keyboard_manager.h"
 
-namespace Engine::Managers {
+namespace Amethyst {
     KeyboardManager::KeyboardManager() {
-        keyStates = Inputs::KeyStates();
+        keyStates = KeyStates();
         alreadyPressed = false;
     }
 

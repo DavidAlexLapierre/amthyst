@@ -6,7 +6,7 @@
 
 enum class Keys;
 
-namespace Engine::Inputs {
+namespace Amethyst {
     
     class KeyMapper {
     public:

@@ -7,7 +7,7 @@
 #include <memory>
 #include <unordered_map>
 
-namespace Engine::Rendering {
+namespace Amethyst {
     class Mesh;
 
     class Renderer {

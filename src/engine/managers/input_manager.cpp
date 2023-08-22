@@ -1,7 +1,7 @@
 #include "engine/managers/input_manager.h"
 #include <iostream>
 
-namespace Engine::Managers {
+namespace Amethyst {
 
     KeyboardManager InputManager::keyboardManager = KeyboardManager();
     

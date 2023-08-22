@@ -5,7 +5,7 @@
 #include <memory>
 #include <string>
 
-namespace Engine::Managers {
+namespace Amethyst {
     class SceneManager {
         public:
             SceneManager();

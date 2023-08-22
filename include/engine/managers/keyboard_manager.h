@@ -2,7 +2,7 @@
 
 #include "engine/inputs/key_states.h"
 
-namespace Engine::Managers {
+namespace Amethyst {
     class KeyboardManager {
         public:
             KeyboardManager();
@@ -17,6 +17,6 @@ namespace Engine::Managers {
 
         private:
             bool alreadyPressed;
-            Inputs::KeyStates keyStates;
+            KeyStates keyStates;
     };
 }

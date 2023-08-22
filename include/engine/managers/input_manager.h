@@ -4,7 +4,7 @@
 #include <GLFW/glfw3.h>
 #include <memory>
 
-namespace Engine::Managers {
+namespace Amethyst {
     class InputManager {
         public:
             static void keyboardCallback(GLFWwindow *window, int key, int scancode, int action, int mods);

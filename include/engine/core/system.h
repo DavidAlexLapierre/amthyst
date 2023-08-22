@@ -9,13 +9,13 @@
 #include <typeindex>
 #include <string>
 
-namespace Engine::Managers {
+namespace Amethyst {
     class SystemManager;
 }
 
 class System {
     public:
-        System(std::shared_ptr<Engine::Managers::SystemManager> systemManager, std::vector<std::type_index> components);
+        System(std::shared_ptr<Amethyst::SystemManager> systemManager, std::vector<std::type_index> components);
         virtual void init() = 0;
         void createEntity(std::shared_ptr<Entity> entity);
         void registerEntity(std::shared_ptr<Entity> entity);
@@ -27,7 +27,7 @@ class System {
         std::vector<std::type_index> registeredComponents;
 
     protected:
-        std::shared_ptr<Engine::Managers::SystemManager> systemManager;
+        std::shared_ptr<Amethyst::SystemManager> systemManager;
         virtual void dispose() = 0;
         std::unordered_map<std::string, std::shared_ptr<Entity>> entities;
 };

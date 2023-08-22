@@ -9,10 +9,10 @@
 #include <memory>
 #include <unordered_map>
 
-namespace Engine::Rendering {
+namespace Amethyst {
     class MeshLoader {
         public:
-            void loadToVao(Data::UUID entityId, std::shared_ptr<Mesh> mesh);
+            void loadToVao(Amethyst::UUID entityId, std::shared_ptr<Mesh> mesh);
             void createVao(std::string id);
             GLuint getVao(std::string id);
             GLuint getVbo(std::string id);

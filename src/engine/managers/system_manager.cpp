@@ -1,9 +1,9 @@
 #include "engine/managers/system_manager.h"
 
-namespace Engine::Managers {
+namespace Amethyst {
     
     SystemManager::SystemManager() {
-        renderer = std::make_shared<Engine::Rendering::Renderer>();
+        renderer = std::make_shared<Amethyst::Renderer>();
     }
 
     void SystemManager::registerSystem(std::shared_ptr<System> system) {

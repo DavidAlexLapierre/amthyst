@@ -1,6 +1,6 @@
 #include "engine/data/color.h"
 
-namespace Data {
+namespace Amethyst {
 
     Color::Color() {
         _r = 0;

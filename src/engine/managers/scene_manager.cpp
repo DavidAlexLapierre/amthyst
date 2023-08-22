@@ -1,6 +1,6 @@
 #include "engine/managers/scene_manager.h"
 
-namespace Engine::Managers {
+namespace Amethyst {
     SceneManager::SceneManager() {
         currentScene = nullptr;
     }

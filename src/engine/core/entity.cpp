@@ -1,10 +1,10 @@
 #include "engine/core/entity.h"
 
 Entity::Entity() {
-    _id = Data::UUID();
+    _id = Amethyst::UUID();
 }
 
-Data::UUID Entity::id() { return _id; }
+Amethyst::UUID Entity::id() { return _id; }
 
 std::vector<std::type_index> Entity::getComponentList() {
     std::vector<std::type_index> _components;

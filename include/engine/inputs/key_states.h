@@ -2,7 +2,7 @@
 
 #include <GLFW/glfw3.h>
 
-namespace Engine::Inputs {
+namespace Amethyst {
     class KeyStates {
         public:
             static const int ENABLED = 1;

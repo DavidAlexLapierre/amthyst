@@ -2,7 +2,7 @@
 
 #include <vector>
 
-namespace Engine::Rendering {
+namespace Amethyst {
     struct Geometry {
         public:
             std::vector<float> vertices;

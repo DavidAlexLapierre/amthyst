@@ -1,6 +1,6 @@
 #include "engine/data/uuid.h"
 
-namespace Data {
+namespace Amethyst {
 
     const std::string UUID::EMPTY = "00000000-00000000-00000000-00000000";
 

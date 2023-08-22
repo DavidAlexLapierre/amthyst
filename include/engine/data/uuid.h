@@ -5,7 +5,7 @@
 #include <iomanip>
 #include <sstream>
 
-namespace Data {
+namespace Amethyst {
     class UUID {
         public:
             static const std::string EMPTY;

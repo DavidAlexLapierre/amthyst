@@ -19,5 +19,5 @@ class Game {
         void initWindow();
         void terminateWindow();
         double run(double previousDeltaT);
-        std::unique_ptr<Engine::Managers::SceneManager> sceneManager;
+        std::unique_ptr<Amethyst::SceneManager> sceneManager;
 };

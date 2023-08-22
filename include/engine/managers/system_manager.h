@@ -9,7 +9,7 @@
 
 class System;
 
-namespace Engine::Managers {
+namespace Amethyst {
     class SystemManager {
         public:
             SystemManager();
@@ -20,7 +20,7 @@ namespace Engine::Managers {
             std::vector<std::shared_ptr<System>> getSystems();
 
         private:
-            std::shared_ptr<Engine::Rendering::Renderer> renderer;
+            std::shared_ptr<Amethyst::Renderer> renderer;
             bool entityMatchesSystem(std::shared_ptr<Entity> entity, std::shared_ptr<System> system);
             std::vector<std::shared_ptr<System>> systems;
     };

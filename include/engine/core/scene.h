@@ -14,17 +14,17 @@ class Scene : public std::enable_shared_from_this<Scene> {
         virtual void init() = 0;
         virtual void dispose() = 0;
         const std::string getName();
-        Data::Color getBackgroundColor();
+        Amethyst::Color getBackgroundColor();
         void update(double deltaT);
         void draw();
         void createEntity(std::shared_ptr<Entity> entity);
 
     private:
-        std::shared_ptr<Engine::Rendering::Renderer> renderer;
-        std::unique_ptr<Engine::Managers::SystemManager> systemManager;
-        Data::Color backgroundColor;
+        std::shared_ptr<Amethyst::Renderer> renderer;
+        std::unique_ptr<Amethyst::SystemManager> systemManager;
+        Amethyst::Color backgroundColor;
         std::string name;
 
     protected:
-        void setColor(Data::Color c);
+        void setColor(Amethyst::Color c);
 };

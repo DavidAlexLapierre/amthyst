@@ -1,6 +1,6 @@
 #include "engine/rendering/renderer.h"
 
-namespace Engine::Rendering {
+namespace Amethyst {
 
     Renderer::Renderer() {
         loader = std::make_unique<MeshLoader>();

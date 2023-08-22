@@ -2,7 +2,7 @@
 
 #include <cstdint>
 
-namespace Data {
+namespace Amethyst {
     class Color {
         public:
             Color();

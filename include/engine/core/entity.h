@@ -10,7 +10,7 @@
 class Entity {
     public:
         Entity();
-        Data::UUID id();
+        Amethyst::UUID id();
 
         virtual void init() {}
         virtual void dispose() {}
@@ -36,5 +36,5 @@ class Entity {
 
     private:
         std::unordered_map<std::type_index, std::shared_ptr<Component>> components;
-        Data::UUID _id;
+        Amethyst::UUID _id;
 };

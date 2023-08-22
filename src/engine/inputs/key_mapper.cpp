@@ -1,6 +1,6 @@
 #include "engine/inputs/key_mapper.h"
 
-namespace Engine::Inputs {
+namespace Amethyst {
     const std::unordered_map<Keys, int> KeyMapper::keyMap = {
         {Keys::A, GLFW_KEY_A},
         {Keys::B, GLFW_KEY_B},

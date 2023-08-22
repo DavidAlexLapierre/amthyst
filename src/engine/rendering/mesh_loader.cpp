@@ -1,7 +1,7 @@
 #include "engine/rendering/mesh_loader.h"
 
-namespace Engine::Rendering {
-    void MeshLoader::loadToVao(Data::UUID entityId, std::shared_ptr<Mesh> mesh) {
+namespace Amethyst {
+    void MeshLoader::loadToVao(Amethyst::UUID entityId, std::shared_ptr<Mesh> mesh) {
         createVao(entityId.toString());
         storeDataInAttributeList(entityId.toString(), 0, mesh->geometry.vertices);
         unbindVao();

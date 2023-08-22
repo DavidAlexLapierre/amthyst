@@ -3,7 +3,7 @@
 
 Game::Game(const char* _name) {
     name = _name;
-    sceneManager = std::make_unique<Engine::Managers::SceneManager>();
+    sceneManager = std::make_unique<Amethyst::SceneManager>();
     if (glfwInit()) {
         initWindow();
     }
@@ -30,7 +30,7 @@ void Game::initWindow() {
         return;
     }
 
-    glfwSetKeyCallback(window, Engine::Managers::InputManager::keyboardCallback);
+    glfwSetKeyCallback(window, Amethyst::InputManager::keyboardCallback);
 }
 
 void Game::terminateWindow() {
@@ -56,7 +56,7 @@ void Game::init() {
 double Game::run(double previousDeltaT) {
     double currentTime = glfwGetTime();
     double deltaT = currentTime - previousDeltaT;
-    Data::Color color = sceneManager->getCurrentScene()->getBackgroundColor();
+    Amethyst::Color color = sceneManager->getCurrentScene()->getBackgroundColor();
     glClearColor(color.r(), color.g(), color.b(), color.a());
     glClear(GL_COLOR_BUFFER_BIT);
     glfwPollEvents();\

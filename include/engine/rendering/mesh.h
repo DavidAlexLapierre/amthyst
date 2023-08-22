@@ -5,7 +5,7 @@
 #include "engine/rendering/geometry.h"
 #include "engine/core/component.h"
 
-namespace Engine::Rendering {
+namespace Amethyst {
     struct Mesh : public Component {
         public:
             Geometry geometry;
