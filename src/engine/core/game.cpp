@@ -47,6 +47,7 @@ void Game::init() {
         double previousDeltaT = glfwGetTime();
         while (!glfwWindowShouldClose(window)) {
             previousDeltaT = run(previousDeltaT);
+            if (previousDeltaT < 0) break;
         }
     }
 
@@ -56,10 +57,12 @@ void Game::init() {
 double Game::run(double previousDeltaT) {
     double currentTime = glfwGetTime();
     double deltaT = currentTime - previousDeltaT;
-    Amethyst::Color color = sceneManager->getCurrentScene()->getBackgroundColor();
+    auto scene = sceneManager->getCurrentScene();
+    if (!scene) return -1; // ADD LOGGING FOR NO SCENE
+    Amethyst::Color color = scene->getBackgroundColor();
     glClearColor(color.r(), color.g(), color.b(), color.a());
     glClear(GL_COLOR_BUFFER_BIT);
-    glfwPollEvents();\
+    glfwPollEvents();
 
 
     if (keyPressed(Keys::F1)) {
@@ -70,11 +73,8 @@ double Game::run(double previousDeltaT) {
         glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
     }
 
-    // update
-    sceneManager->getCurrentScene()->update(deltaT);
-
-    // draw
-    sceneManager->getCurrentScene()->draw();
+    scene->update(deltaT);
+    scene->draw();
 
     glfwSwapBuffers(window);
 
