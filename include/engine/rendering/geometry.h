@@ -7,6 +7,6 @@ namespace Amethyst {
         public:
             std::vector<float> vertices;
             std::vector<int> indices;
-            int vertexCount() { return vertices.size() / 3; }
+            int vertexCount() { return indices.size(); }
     };
 }

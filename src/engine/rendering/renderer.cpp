@@ -12,7 +12,7 @@ namespace Amethyst {
             auto mesh = entity->getComponent<Mesh>();
             if (mesh) {
                 entities[entity->id().toString()] = entity;
-                loader.loadToVao(entity->id(), mesh);
+                loader.loadToVao(entity->id().toString(), mesh);
             }
         }
     }
@@ -32,7 +32,8 @@ namespace Amethyst {
     void Renderer::render(std::shared_ptr<Mesh> mesh, std::string id) {
         glBindVertexArray(loader.getVao(id));
         glEnableVertexAttribArray(0);
-        glDrawArrays(GL_TRIANGLES, 0, mesh->geometry.vertexCount());
+        auto count = mesh->geometry.vertexCount();
+        glDrawElements(GL_TRIANGLES, count, GL_UNSIGNED_INT, 0);
         glDisableVertexAttribArray(0);
         glBindVertexArray(0);
     }

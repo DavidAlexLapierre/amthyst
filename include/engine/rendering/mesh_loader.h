@@ -12,15 +12,16 @@
 namespace Amethyst {
     class MeshLoader {
         public:
-            void loadToVao(Amethyst::UUID entityId, std::shared_ptr<Mesh> mesh);
+            void loadToVao(std::string id, std::shared_ptr<Mesh> mesh);
             void createVao(std::string id);
             GLuint getVao(std::string id);
-            GLuint getVbo(std::string id);
             void dispose();
 
         private:
             std::unordered_map<std::string, GLuint> vaos;
-            std::unordered_map<std::string, GLuint> vbos;
-            void storeDataInAttributeList(std::string id, int attributeNumber, std::vector<float> data);
+            std::vector<GLuint> vbos;
+            void bindIndices(std::vector<int> data);
+            void storeDataInAttributeList(int attributeNumber, int size, std::vector<float> data);
+            void storeDataInAttributeList(int attributeNumber, int size, std::vector<int> data);
     };
 }
