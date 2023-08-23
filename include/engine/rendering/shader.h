@@ -7,7 +7,6 @@
 namespace Amethyst {
     class Shader {
         public:
-            virtual void init(const char *vertexCode, const char *fragmentCode);
             void start();
             void stop();
             void enableAttributes();
@@ -22,6 +21,7 @@ namespace Amethyst {
             GLuint program;
 
         protected:
+            virtual void init(const char *vertexCode, const char *fragmentCode);
             void bindAttribute(int attribute, const char *string);
             GLint getUniformLocation(const char* name);
             virtual void bindAttributes() = 0;

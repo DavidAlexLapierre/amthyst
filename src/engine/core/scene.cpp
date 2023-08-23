@@ -1,7 +1,7 @@
 #include "engine/core/scene.h"
 Scene::Scene(const std::string _name) {
     name = _name;
-    backgroundColor = Amethyst::Color(255, 255, 255);
+    backgroundColor = Amethyst::Color(20, 20, 20);
     systemManager = std::make_shared<Amethyst::SystemManager>();
 }
 
