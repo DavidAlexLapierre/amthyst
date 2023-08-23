@@ -1,7 +1,8 @@
 #include "engine/rendering/shader.h"
 
 namespace Amethyst {
-    Shader::Shader(const char* vertexCode, const char* fragmentCode) {
+    
+    void Shader::init(const char* vertexCode, const char* fragmentCode) {
         vertexShader = Shader::loadShader(vertexCode, GL_VERTEX_SHADER);
         fragmentShader = Shader::loadShader(fragmentCode, GL_FRAGMENT_SHADER);
         program = glCreateProgram();

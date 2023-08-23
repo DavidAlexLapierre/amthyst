@@ -4,11 +4,13 @@
 
 namespace Amethyst {
     class Shader2D : public Shader {
-        public: 
-            Shader2D() : Shader(vertexCode, fragmentCode) {}
+        public:
+            Shader2D() : Shader() {
+                init(vertexCode, fragmentCode);
+            }
 
         private:
-            const char *vertexCode = R"(
+            const char* vertexCode = R"(
                 #version 400 core
 
                 in vec3 position;
@@ -20,7 +22,7 @@ namespace Amethyst {
                 }
             )";
 
-            const char *fragmentCode = R"(
+            const char* fragmentCode = R"(
                 #version 400 core
 
                 in vec3 color;
@@ -32,6 +34,8 @@ namespace Amethyst {
             )";
 
         protected:
-            void bindAttributes() override;
+            void bindAttributes() override {
+                bindAttribute(0, "position");
+            }
     };
 }
