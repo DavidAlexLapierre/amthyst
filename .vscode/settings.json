@@ -67,7 +67,10 @@
         "mutex": "cpp",
         "ratio": "cpp",
         "stop_token": "cpp",
-        "thread": "cpp"
+        "thread": "cpp",
+        "charconv": "cpp",
+        "format": "cpp",
+        "optional": "cpp"
     },
     "editor.tabSize": 4,
     "editor.defaultFormatter": "ms-vscode.cpptools",

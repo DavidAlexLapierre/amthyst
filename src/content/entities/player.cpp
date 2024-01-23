@@ -2,6 +2,5 @@
 
 namespace Content {
     void Player::init() {
-        addComponent(Amethyst::MeshBuilder::createSprite());
     }
 }

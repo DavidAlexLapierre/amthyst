@@ -5,7 +5,7 @@
             "name": "Debug Amethyst",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${workspaceFolder}/bin/amethyst.exe",
+            "program": "${workspaceFolder}/build/debug/x64/amethyst.exe",
             "args": [],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}",

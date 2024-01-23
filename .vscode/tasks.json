@@ -6,8 +6,7 @@
             "type": "shell",
             "command": "",
             "args": [
-                "make",
-                "--directory=${workspaceFolder}",
+                "scons",
             ],
             "group":  {
                 "kind": "build",

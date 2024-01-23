@@ -13,7 +13,7 @@ namespace Amethyst {
     }
 
     void Renderer::registerEntity(std::shared_ptr<Entity> entity) {
-        if (entity) {
+        if (entity != nullptr) {
             auto mesh = entity->getComponent<Mesh>();
             if (mesh) {
                 entities[entity->id().toString()] = entity;
